@@ -131,10 +131,11 @@ export function useLlamadas(limit = 50) {
 
     if (error) throw error
     
-    return (data || []).map((item) => ({
-      ...(item as unknown as RegistroLlamada),
-      agente: item.agente as unknown as Agente,
-      analisis: (item.analisis as AnalisisLlamada[] | undefined)?.[0] as AnalisisLlamada | undefined
+    type RawData = RegistroLlamada & { agente: unknown; analisis: unknown[] }
+    return ((data || []) as RawData[]).map((item) => ({
+      ...item,
+      agente: item.agente as Agente | undefined,
+      analisis: (item.analisis as AnalisisLlamada[])?.[0]
     })) as LlamadaConAnalisis[]
   }, [limit])
 }
@@ -175,9 +176,10 @@ export function useLlamadasPorAgente(agenteId: string | undefined, limit = 25) {
 
     if (error) throw error
     
-    return (data || []).map((item) => ({
-      ...(item as unknown as RegistroLlamada),
-      analisis: (item.analisis as AnalisisLlamada[] | undefined)?.[0] as AnalisisLlamada | undefined
+    type RawData = RegistroLlamada & { analisis: unknown[] }
+    return ((data || []) as RawData[]).map((item) => ({
+      ...item,
+      analisis: (item.analisis as AnalisisLlamada[])?.[0]
     })) as LlamadaConAnalisis[]
   }, [agenteId, limit])
 }
