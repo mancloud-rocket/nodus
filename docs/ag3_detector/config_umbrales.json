@@ -1,0 +1,120 @@
+{
+  "_descripcion": "Configuracion de umbrales para el Agente Detector (Modo Periodico 24h)",
+  "_version": "2.0",
+  "_ultima_actualizacion": "2026-02-04",
+  
+  "ejecucion": {
+    "cron": "0 7 * * *",
+    "descripcion": "Todos los dias a las 07:00 AM",
+    "timezone": "America/Santiago",
+    "periodo_analisis_horas": 24
+  },
+  
+  "minimos": {
+    "llamadas_por_agente": {
+      "valor": 3,
+      "descripcion": "Minimo de llamadas para evaluar un agente"
+    },
+    "llamadas_sistema": {
+      "valor": 50,
+      "descripcion": "Minimo de llamadas para evaluar metricas sistemicas"
+    },
+    "llamadas_para_validacion": {
+      "valor": 5,
+      "descripcion": "Minimo de llamadas para evaluar tasa de validacion/abandono"
+    }
+  },
+  
+  "umbrales_agente": {
+    "score_critico": {
+      "valor": 40,
+      "severidad": "critica",
+      "descripcion": "Score promedio por debajo genera alerta critica"
+    },
+    "score_bajo": {
+      "valor": 55,
+      "severidad": "alta",
+      "descripcion": "Score promedio por debajo genera alerta alta"
+    },
+    "abandono_alto": {
+      "valor": 0.20,
+      "severidad": "alta",
+      "descripcion": "Tasa de abandono por encima genera alerta"
+    },
+    "validacion_minima": {
+      "valor": 0.15,
+      "severidad": "alta",
+      "descripcion": "Tasa de validacion explicita por debajo genera alerta"
+    },
+    "caida_score": {
+      "valor": 0.15,
+      "severidad": "media",
+      "descripcion": "Caida porcentual vs dia anterior que genera alerta"
+    },
+    "probabilidad_baja": {
+      "valor": 30,
+      "severidad": "media",
+      "descripcion": "Probabilidad de cumplimiento promedio baja"
+    }
+  },
+  
+  "umbrales_patron": {
+    "llamadas_criticas": {
+      "valor": 5,
+      "severidad": "alta",
+      "descripcion": "Numero de llamadas con score < 40 que genera alerta"
+    },
+    "abandonos_consecutivos": {
+      "valor": 3,
+      "severidad": "alta",
+      "descripcion": "Numero de abandonos en secuencia que genera alerta"
+    }
+  },
+  
+  "umbrales_sistema": {
+    "abandono_critico": {
+      "valor": 0.25,
+      "severidad": "critica",
+      "descripcion": "Tasa de abandono global que genera alerta critica"
+    },
+    "caida_score": {
+      "valor": 0.10,
+      "severidad": "alta",
+      "descripcion": "Caida porcentual global vs dia anterior"
+    },
+    "validacion_minima": {
+      "valor": 0.25,
+      "severidad": "alta",
+      "descripcion": "Tasa de validacion global minima"
+    },
+    "volumen_minimo": {
+      "valor": 0.70,
+      "severidad": "media",
+      "descripcion": "Porcentaje minimo de volumen vs dia anterior"
+    }
+  },
+  
+  "deduplicacion": {
+    "ventana_dias": 3,
+    "descripcion": "No crear alerta si existe una igual en los ultimos N dias"
+  },
+  
+  "notificaciones": {
+    "critica": {
+      "canales": ["slack", "email", "in-app"],
+      "destinatarios": ["director", "supervisor"]
+    },
+    "alta": {
+      "canales": ["slack", "email", "in-app"],
+      "destinatarios": ["supervisor"]
+    },
+    "media": {
+      "canales": ["email", "in-app"],
+      "destinatarios": ["supervisor"]
+    },
+    "baja": {
+      "canales": ["in-app"],
+      "destinatarios": ["supervisor"]
+    }
+  }
+}

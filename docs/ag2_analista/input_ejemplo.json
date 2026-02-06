@@ -1,0 +1,104 @@
+{
+  "_comentario": "Este es el input que recibe el Agente Analista desde el Transcriptor",
+  
+  "webhook_payload": {
+    "registro_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "transcripcion_id": "f1e2d3c4-b5a6-7890-1234-567890abcdef"
+  },
+  
+  "datos_transcripcion": {
+    "transcripcion_completa": "Agente: Buenas tardes. Cliente: Buenas tardes. Agente: ¿Sí buenas tardes? Hablo con la señora Yessenia Andrea González Díaz. Cliente: Sí. Agente: Un gusto, mi nombre es Silvano Machado, le estamos hablando de Redsap por encargo de Caja Los Andes. Cliente: Sí. Agente: Señora Yessenia la estamos llamando referente a sus créditos que actualmente están presentando una deuda. Pero nosotros por aquí lo que queremos es disminuirle el monto de esa deuda y por eso le tenemos unas ofertas que de repente se puedan ajustar a su situación actual, ¿sí? Cliente: Sí. Agente: Okay, por aquí yo tengo un crédito que termina en 8569 que actualmente está presentando una deuda de 405,302 pesos. Por acá le ofrecemos que en lugar de pagar esos 405,000 pague solamente 128,888 pesos y ya con eso quedaría saldado el crédito. ¿Sí? Cliente: Sí. Agente: También tengo un crédito... sí diga. Cliente: Ya, no, siga, siga. Agente: Vale, también tengo un crédito que termina en 6564 que tiene una deuda total de 16,809 pesos, pero si paga solamente 10,607 pesos quedaría saldado el crédito. ¿Qué le parece esta oferta, señora Yessenia? Cliente: Ayer pagué uno de 16, quedan 10 mil y algo. Agente: El de 16,000 pagaría 10,607 y saldaría... Cliente: Sí, eso fue lo que pagué ayer y me queda uno de 16 creo, porque eran dos. Agente: Vale, tiene... yo veo aquí que tiene, ah okay, el que termina en 8512. Cliente: Sí. Agente: Ajá, sí, ese. ¿Y ese cómo hizo el pago, señora Yessenia? Cliente: ¿Perdón? Agente: ¿Cómo hizo el pago de ese crédito? Cliente: Por la APP. Agente: Por la aplicación. Cliente: Sí, me salió en oferta y... Agente: Pero entonces le quedarían tres créditos, señora Yessenia. Cliente: Sí, tres solamente. Bueno, yo creo que mañana pago el otro de 16 y me quedarían los dos grandes. Agente: Exacto, se quedaría con los dos grandes. Vale, igual lo estaría pagando por la aplicación señora Yessenia. Cliente: Sí, porque igual son cuotas. Agente: Vale, entonces yo voy a colocar que estaría pagando eso y quedarían entonces los más grandes que bueno, poco a poco los va a ir pagando señora Yessenia, ¿sí? Cliente: Sí, sí, sí. Incluso ayer había hablado por WhatsApp para ver si podía hacer como juntar esas dos deudas y hacer una sola. Agente: Eso tendría que ir directamente en la oficina. Sería una repactación de los créditos, pero sí tiene que ir directamente a la sucursal para poder hacerlo. Cliente: Ah, ya, okay. Agente: Si quiere puede aprovechar la oferta, pero tendría que ser antes del viernes para que aproveche la oferta que tenemos acá, ¿sí? Cliente: Ya. Agente: ¿Sí tendría disponibilidad señora Yessenia? Cliente: Yo creo que sí, eso del 120 y ¿cuánto me dijo? ¿128? Agente: 128,888. Uno es por 128. Cliente: ¿Ese está para el día sábado o no? Agente: Sí, sí, para el día sábado sí. Cliente: Ese es el mismo que me sale por la página, ¿verdad? Agente: Por la página, sí. Lo que yo voy a hacer es bloquearlo para que ya para el sábado tenga ese mismo monto y no se lo cambien. Cliente: Ya. Okay, okay. Sí yo creo que el sábado cancelo ese de 128 y ya me quedaría el otro nomás. Agente: Exacto, con el favor de Dios, poco a poco, señora Yessenia. Cliente: Poco a poco. Gracias. Agente: Dale, ya coloco esa información por aquí y cualquier cosa estamos a la orden señora Yessenia. Cliente: Ya, muchas gracias. Agente: Muchísimas gracias, feliz día. Cliente: Igual. Agente: Dale, hasta luego.",
+    "duracion_segundos": 261,
+    "segmentos": [
+      {"id": 0, "speaker": "agente", "texto": "Buenas tardes.", "emocion": "neutral", "emocion_intensidad": 0.4},
+      {"id": 1, "speaker": "cliente", "texto": "Buenas tardes.", "emocion": "neutral", "emocion_intensidad": 0.3},
+      {"id": 41, "speaker": "cliente", "texto": "Ya. Okay, okay. Sí yo creo que el sábado cancelo ese de 128 y ya me quedaría el otro nomás.", "emocion": "aliviado", "emocion_intensidad": 0.7}
+    ],
+    "entidades": {
+      "montos": [
+        {"valor": 405302, "moneda": "CLP", "contexto": "deuda_principal", "frase_exacta": "deuda de 405,302 pesos"},
+        {"valor": 128888, "moneda": "CLP", "contexto": "oferta_descuento", "frase_exacta": "pague solamente 128,888 pesos"},
+        {"valor": 16809, "moneda": "CLP", "contexto": "deuda_secundaria", "frase_exacta": "deuda total de 16,809 pesos"},
+        {"valor": 10607, "moneda": "CLP", "contexto": "oferta_descuento_secundaria", "frase_exacta": "paga solamente 10,607 pesos"}
+      ],
+      "fechas": [
+        {"fecha_relativa": "mañana", "contexto": "compromiso_pago_menor", "frase_exacta": "mañana pago el otro de 16"},
+        {"fecha_relativa": "antes del viernes", "contexto": "limite_oferta", "frase_exacta": "tendría que ser antes del viernes"},
+        {"fecha_relativa": "el sábado", "contexto": "compromiso_pago_principal", "frase_exacta": "el sábado cancelo ese de 128"}
+      ],
+      "metodos_pago": [
+        {"metodo": "app_movil", "mencionado_por": "cliente", "frase_exacta": "Por la APP"},
+        {"metodo": "web", "mencionado_por": "cliente", "frase_exacta": "por la página"}
+      ],
+      "objeciones": [
+        {"tipo": "ninguna", "descripcion": "La cliente muestra disposición al pago y ya está realizando gestiones por su cuenta."}
+      ],
+      "compromisos": [
+        {"tipo": "pago_total_con_descuento", "credito_referencia": "8569", "monto": 128888, "fecha_relativa": "el sábado", "validacion": "explicita", "frase_validacion": "Sí yo creo que el sábado cancelo ese de 128", "confianza": 0.95},
+        {"tipo": "pago_total_con_descuento", "credito_referencia": "6564", "monto": 10607, "fecha_relativa": "mañana", "validacion": "explicita", "frase_validacion": "Bueno, yo creo que mañana pago el otro de 16", "confianza": 0.9}
+      ]
+    },
+    "analisis_emocional": {
+      "agente": {"emocion_dominante": "positivo", "distribucion": {"neutral": 0.48, "positivo": 0.4, "interesado": 0.12}, "intensidad_promedio": 0.52},
+      "cliente": {"emocion_dominante": "neutral", "distribucion": {"neutral": 0.46, "positivo": 0.25, "interesado": 0.21, "aliviado": 0.08}, "intensidad_promedio": 0.48},
+      "evolucion_cliente": "mejoro",
+      "momentos_criticos": [
+        {"timestamp": 145, "tipo": "revelacion_situacion", "descripcion": "Cliente revela que ya está pagando activamente.", "impacto": "medio"},
+        {"timestamp": 302, "tipo": "aceptacion", "descripcion": "Cliente confirma compromiso de pago para el sábado.", "impacto": "alto"}
+      ]
+    },
+    "patrones_script": {
+      "saludo_correcto": true,
+      "identificacion_empresa": true,
+      "identificacion_agente": true,
+      "verificacion_identidad_cliente": true,
+      "explicacion_motivo": true,
+      "mencion_monto_deuda": true,
+      "presentacion_ofertas": true,
+      "mencion_consecuencias": false,
+      "intento_cierre": true,
+      "despedida_correcta": true,
+      "score_script": 90
+    },
+    "resultado_preliminar": {
+      "tipo_cierre": "compromiso_explicito",
+      "hubo_abandono": false,
+      "compromiso_logrado": true,
+      "monto_total_comprometido": 139495,
+      "moneda": "CLP",
+      "fecha_compromiso": "proximo_sabado",
+      "metodo_pago_acordado": "app_movil",
+      "riesgo_incumplimiento": "bajo"
+    },
+    "metricas_conversacion": {
+      "ratio_habla_agente": 0.69,
+      "turnos_conversacion": 49,
+      "palabras_agente": 366,
+      "palabras_cliente": 160
+    }
+  },
+  
+  "datos_agente": {
+    "agente_id": "11111111-2222-3333-4444-555555555555",
+    "nombre": "Silvano Machado",
+    "equipo": "Equipo A",
+    "fecha_ingreso": "2025-06-15",
+    "estado": "activo"
+  },
+  
+  "historial_cliente": {
+    "_nota": "Últimas 5 llamadas del mismo cliente (si existen)",
+    "llamadas_previas": [],
+    "compromisos_anteriores": [],
+    "cumplimiento_historico": null
+  },
+  
+  "info_deuda": {
+    "campana": "Recuperación Q1 2026",
+    "monto_total_deuda": 438920,
+    "dias_mora": null,
+    "tipo_deuda": null
+  }
+}
+
+

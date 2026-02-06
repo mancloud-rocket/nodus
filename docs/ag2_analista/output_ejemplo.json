@@ -1,0 +1,147 @@
+{
+  "_comentario": "Este es el output que genera el Agente Analista para INSERT en analisis_llamadas",
+  
+  "registro_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "transcripcion_id": "f1e2d3c4-b5a6-7890-1234-567890abcdef",
+  "agente_id": "11111111-2222-3333-4444-555555555555",
+  
+  "score_total": 80,
+  "score_contacto_directo": 80,
+  "score_compromiso_pago": 80,
+  
+  "modulo_contacto_directo": {
+    "score": 80,
+    "desglose": {
+      "monto_mencionado": {
+        "presente": true,
+        "puntos": 25,
+        "max": 25,
+        "evidencia": "deuda de 405,302 pesos"
+      },
+      "fecha_vencimiento": {
+        "presente": true,
+        "puntos": 15,
+        "max": 15,
+        "evidencia": "antes del viernes para que aproveche la oferta"
+      },
+      "consecuencias_impago": {
+        "presente": false,
+        "puntos": 15,
+        "max": 20,
+        "evidencia": "No mencionadas, pero cliente ya activamente pagando (se otorgan 15 pts)"
+      },
+      "alternativas_pago": {
+        "presente": true,
+        "puntos": 15,
+        "max": 15,
+        "evidencia": "APP móvil, página web, sucursal (para repactación)"
+      },
+      "manejo_objeciones": {
+        "calidad": 0.4,
+        "puntos": 10,
+        "max": 25,
+        "objeciones_detectadas": 0,
+        "detalle": "No hubo objeciones del cliente. Se otorgan puntos parciales porque el agente no profundizó en la situación financiera actual."
+      }
+    }
+  },
+  
+  "modulo_compromiso_pago": {
+    "score": 80,
+    "desglose": {
+      "oferta_clara": {
+        "presente": true,
+        "puntos": 20,
+        "max": 20,
+        "evidencia": "Oferta de 128,888 CLP para saldar deuda de 405,302 CLP (descuento del 68%)"
+      },
+      "alternativas_pago": {
+        "presente": true,
+        "puntos": 10,
+        "max": 10,
+        "evidencia": "APP, web, sucursal"
+      },
+      "fecha_especifica": {
+        "presente": true,
+        "puntos": 20,
+        "max": 20,
+        "fecha": "el sábado"
+      },
+      "validacion_cliente": {
+        "presente": true,
+        "tipo": "explicita",
+        "puntos": 30,
+        "max": 50,
+        "frase_exacta": "Sí yo creo que el sábado cancelo ese de 128 y ya me quedaría el otro nomás"
+      }
+    }
+  },
+  
+  "modulo_abandono": {
+    "hubo_abandono": false,
+    "momento_segundos": null,
+    "iniciado_por": null,
+    "razon": null,
+    "senales_previas": []
+  },
+  
+  "probabilidad_cumplimiento": 78,
+  "nivel_cumplimiento": "alta",
+  
+  "factores_prediccion": {
+    "factores_positivos": [
+      "Cliente ya pagó un crédito el día anterior vía APP",
+      "Validación explícita del compromiso de pago",
+      "Fecha específica acordada (sábado)",
+      "Actitud colaborativa y aliviada del cliente",
+      "Cliente pregunta activamente sobre fechas y montos",
+      "Evolución emocional positiva durante la llamada",
+      "Cliente tiene interés en regularizar todas sus deudas (preguntó por repactación)"
+    ],
+    "factores_negativos": [
+      "Múltiples créditos pendientes (3 activos)",
+      "No se mencionaron consecuencias de impago",
+      "Validación usa 'yo creo' (ligera incertidumbre)"
+    ],
+    "razonamiento": "La cliente Yessenia González demuestra un patrón muy activo de pago: ya liquidó un crédito el día anterior y expresa compromiso de pagar otros dos en los próximos días. Su evolución emocional durante la llamada fue de neutral a aliviada, lo que indica satisfacción con las ofertas recibidas. El uso de 'yo creo que' introduce una ligera incertidumbre, pero el contexto general (cliente iniciativa propia de preguntar fechas, bloqueo de oferta por el agente, conocimiento de la plataforma de pago) sugiere alta probabilidad de cumplimiento. El principal riesgo es la acumulación de compromisos (mañana + sábado), pero el monto del viernes es pequeño (10,607 CLP).",
+    "historial_cliente_considerado": false,
+    "confianza_prediccion": 0.85
+  },
+  
+  "alertas": [],
+  
+  "recomendaciones": [
+    {
+      "prioridad": "alta",
+      "destinatario": "sistema",
+      "accion": "Bloquear oferta de 128,888 CLP en el sistema hasta el sábado",
+      "cuando": "inmediato"
+    },
+    {
+      "prioridad": "media",
+      "destinatario": "sistema",
+      "accion": "Programar recordatorio de pago para el viernes (crédito 6564)",
+      "cuando": "jueves"
+    },
+    {
+      "prioridad": "media",
+      "destinatario": "agente",
+      "accion": "Llamar el lunes para confirmar ambos pagos realizados",
+      "cuando": "lunes"
+    },
+    {
+      "prioridad": "baja",
+      "destinatario": "sucursal",
+      "accion": "Preparar información de repactación por si la cliente visita",
+      "cuando": "próxima semana"
+    }
+  ],
+  
+  "modelo_usado": "claude-opus-4-5-20250514",
+  "version_prompt": "v1.0",
+  "confianza_analisis": 0.92,
+  "tiempo_procesamiento_ms": 3200,
+  "fecha_llamada": "2026-01-31"
+}
+
+

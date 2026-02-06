@@ -1,0 +1,98 @@
+{
+  "_descripcion": "Input del Agente Detector - Datos obtenidos de Supabase para las ultimas 24 horas",
+  
+  "metricas_globales": {
+    "periodo": {
+      "inicio": "2026-02-03T07:00:00Z",
+      "fin": "2026-02-04T07:00:00Z"
+    },
+    "total_llamadas": 450,
+    "score_promedio": 72.5,
+    "abandonos": 38,
+    "validaciones_explicitas": 175,
+    "prob_cumplimiento_promedio": 58.3,
+    "llamadas_anterior": 420,
+    "score_anterior": 74.2,
+    "abandonos_anterior": 35,
+    "validaciones_anterior": 180
+  },
+  
+  "metricas_por_agente": [
+    {
+      "agente_id": "11111111-2222-3333-4444-555555555555",
+      "agente_nombre": "Maria Garcia",
+      "equipo": "Equipo Norte",
+      "total_llamadas": 25,
+      "score_promedio": 78.5,
+      "abandonos": 2,
+      "validaciones_explicitas": 12,
+      "llamadas_criticas": 1,
+      "prob_promedio": 65.2
+    },
+    {
+      "agente_id": "22222222-3333-4444-5555-666666666666",
+      "agente_nombre": "Pedro Ruiz",
+      "equipo": "Equipo Sur",
+      "total_llamadas": 20,
+      "score_promedio": 35.8,
+      "abandonos": 6,
+      "validaciones_explicitas": 1,
+      "llamadas_criticas": 12,
+      "prob_promedio": 22.5
+    },
+    {
+      "agente_id": "33333333-4444-5555-6666-777777777777",
+      "agente_nombre": "Juan Lopez",
+      "equipo": "Equipo Norte",
+      "total_llamadas": 18,
+      "score_promedio": 52.3,
+      "abandonos": 5,
+      "validaciones_explicitas": 2,
+      "llamadas_criticas": 4,
+      "prob_promedio": 38.1
+    },
+    {
+      "agente_id": "44444444-5555-6666-7777-888888888888",
+      "agente_nombre": "Ana Martinez",
+      "equipo": "Equipo Sur",
+      "total_llamadas": 22,
+      "score_promedio": 82.1,
+      "abandonos": 1,
+      "validaciones_explicitas": 14,
+      "llamadas_criticas": 0,
+      "prob_promedio": 72.8
+    }
+  ],
+  
+  "comparativas_agentes": [
+    {
+      "agente_id": "11111111-2222-3333-4444-555555555555",
+      "score_hoy": 78.5,
+      "score_ayer": 76.2
+    },
+    {
+      "agente_id": "22222222-3333-4444-5555-666666666666",
+      "score_hoy": 35.8,
+      "score_ayer": 58.5
+    },
+    {
+      "agente_id": "33333333-4444-5555-6666-777777777777",
+      "score_hoy": 52.3,
+      "score_ayer": 68.9
+    },
+    {
+      "agente_id": "44444444-5555-6666-7777-888888888888",
+      "score_hoy": 82.1,
+      "score_ayer": 80.5
+    }
+  ],
+  
+  "alertas_existentes_ultimos_3_dias": [
+    {
+      "alerta_id": "old-alert-001",
+      "codigo": "AGENTE_SCORE_BAJO",
+      "agente_id": "55555555-6666-7777-8888-999999999999",
+      "created_at": "2026-02-02T07:15:00Z"
+    }
+  ]
+}

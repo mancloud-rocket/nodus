@@ -1,0 +1,631 @@
+{
+    "transcripcion_completa": "Agente: Buenas tardes. Cliente: Buenas tardes. Agente: ¿Sí buenas tardes? Hablo con la señora Yessenia Andrea González Díaz. Cliente: Sí. Agente: Un gusto, mi nombre es Silvano Machado, le estamos hablando de Redsap por encargo de Caja Los Andes. Cliente: Sí. Agente: Señora Yessenia la estamos llamando referente a sus créditos que actualmente están presentando una deuda. Pero nosotros por aquí lo que queremos es disminuirle el monto de esa deuda y por eso le tenemos unas ofertas que de repente se puedan ajustar a su situación actual, ¿sí? Cliente: Sí. Agente: Okay, por aquí yo tengo un crédito que termina en 8569 que actualmente está presentando una deuda de 405,302 pesos. Por acá le ofrecemos que en lugar de pagar esos 405,000 pague solamente 128,888 pesos y ya con eso quedaría saldado el crédito. ¿Sí? Cliente: Sí. Agente: También tengo un crédito... sí diga. Cliente: Ya, no, siga, siga. Agente: Vale, también tengo un crédito que termina en 6564 que tiene una deuda total de 16,809 pesos, pero si paga solamente 10,607 pesos quedaría saldado el crédito. ¿Qué le parece esta oferta, señora Yessenia? Cliente: Ayer pagué uno de 16, quedan 10 mil y algo. Agente: El de 16,000 pagaría 10,607 y saldaría... Cliente: Sí, eso fue lo que pagué ayer y me queda uno de 16 creo, porque eran dos. Agente: Vale, tiene... yo veo aquí que tiene, ah okay, el que termina en 8512. Cliente: Sí. Agente: Ajá, sí, ese. ¿Y ese cómo hizo el pago, señora Yessenia? Cliente: ¿Perdón? Agente: ¿Cómo hizo el pago de ese crédito? Cliente: Por la APP. Agente: Por la aplicación. Cliente: Sí, me salió en oferta y... Agente: Pero entonces le quedarían tres créditos, señora Yessenia. Cliente: Sí, tres solamente. Bueno, yo creo que mañana pago el otro de 16 y me quedarían los dos grandes. Agente: Exacto, se quedaría con los dos grandes. Vale, igual lo estaría pagando por la aplicación señora Yessenia. Cliente: Sí, porque igual son cuotas. Agente: Vale, entonces yo voy a colocar que estaría pagando eso y quedarían entonces los más grandes que bueno, poco a poco los va a ir pagando señora Yessenia, ¿sí? Cliente: Sí, sí, sí. Incluso ayer había hablado por WhatsApp para ver si podía hacer como juntar esas dos deudas y hacer una sola. Agente: Eso tendría que ir directamente en la oficina. Sería una repactación de los créditos, pero sí tiene que ir directamente a la sucursal para poder hacerlo. Cliente: Ah, ya, okay. Agente: Si quiere puede aprovechar la oferta, pero tendría que ser antes del viernes para que aproveche la oferta que tenemos acá, ¿sí? Cliente: Ya. Agente: ¿Sí tendría disponibilidad señora Yessenia? Cliente: Yo creo que sí, eso del 120 y ¿cuánto me dijo? ¿128? Agente: 128,888. Uno es por 128. Cliente: ¿Ese está para el día sábado o no? Agente: Sí, sí, para el día sábado sí. Cliente: Ese es el mismo que me sale por la página, ¿verdad? Agente: Por la página, sí. Lo que yo voy a hacer es bloquearlo para que ya para el sábado tenga ese mismo monto y no se lo cambien. Cliente: Ya. Okay, okay. Sí yo creo que el sábado cancelo ese de 128 y ya me quedaría el otro nomás. Agente: Exacto, con el favor de Dios, poco a poco, señora Yessenia. Cliente: Poco a poco. Gracias. Agente: Dale, ya coloco esa información por aquí y cualquier cosa estamos a la orden señora Yessenia. Cliente: Ya, muchas gracias. Agente: Muchísimas gracias, feliz día. Cliente: Igual. Agente: Dale, hasta luego.",
+    "duracion_segundos": 261,
+    "participantes": {
+        "cliente": {
+            "nombre_completo": "Yessenia Andrea González Díaz",
+            "nombre_corto": "Yessenia"
+        },
+        "agente": {
+            "nombre_completo": "Silvano Machado",
+            "nombre_corto": "Silvano"
+        },
+        "empresa_cobranza": "Redsap",
+        "empresa_acreedora": "Caja Los Andes"
+    },
+    "segmentos_raw": [
+        {
+            "id": 0,
+            "speaker": "agente",
+            "timestamp_inicio": 0,
+            "timestamp_fin": 1.5,
+            "texto": "Buenas tardes.",
+            "palabras": 2,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.4
+        },
+        {
+            "id": 1,
+            "speaker": "cliente",
+            "timestamp_inicio": 2,
+            "timestamp_fin": 3,
+            "texto": "Buenas tardes.",
+            "palabras": 2,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.3
+        },
+        {
+            "id": 2,
+            "speaker": "agente",
+            "timestamp_inicio": 4,
+            "timestamp_fin": 10,
+            "texto": "¿Sí buenas tardes? Hablo con la señora Yessenia Andrea González Díaz.",
+            "palabras": 10,
+            "confianza": 0.98,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.5
+        },
+        {
+            "id": 3,
+            "speaker": "cliente",
+            "timestamp_inicio": 10.1,
+            "timestamp_fin": 10.8,
+            "texto": "Sí.",
+            "palabras": 1,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.3
+        },
+        {
+            "id": 4,
+            "speaker": "agente",
+            "timestamp_inicio": 11,
+            "timestamp_fin": 16.5,
+            "texto": "Un gusto, mi nombre es Silvano Machado, le estamos hablando de Redsap por encargo de Caja Los Andes.",
+            "palabras": 17,
+            "confianza": 0.99,
+            "emocion": "positivo",
+            "emocion_intensidad": 0.6
+        },
+        {
+            "id": 5,
+            "speaker": "cliente",
+            "timestamp_inicio": 16.6,
+            "timestamp_fin": 17.2,
+            "texto": "Sí.",
+            "palabras": 1,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.3
+        },
+        {
+            "id": 6,
+            "speaker": "agente",
+            "timestamp_inicio": 18,
+            "timestamp_fin": 31,
+            "texto": "Señora Yessenia la estamos llamando referente a sus créditos que actualmente están presentando una deuda. Pero nosotros por aquí lo que queremos es disminuirle el monto de esa deuda y por eso le tenemos unas ofertas que de repente se puedan ajustar a su situación actual, ¿sí?",
+            "palabras": 47,
+            "confianza": 0.97,
+            "emocion": "interesado",
+            "emocion_intensidad": 0.5
+        },
+        {
+            "id": 7,
+            "speaker": "cliente",
+            "timestamp_inicio": 32,
+            "timestamp_fin": 33,
+            "texto": "Sí.",
+            "palabras": 1,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.3
+        },
+        {
+            "id": 8,
+            "speaker": "agente",
+            "timestamp_inicio": 35,
+            "timestamp_fin": 46,
+            "texto": "Okay, por aquí yo tengo un crédito que termina en 8569 que actualmente está presentando una deuda de 405,302 pesos.",
+            "palabras": 19,
+            "confianza": 0.98,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.4
+        },
+        {
+            "id": 9,
+            "speaker": "agente",
+            "timestamp_inicio": 47,
+            "timestamp_fin": 58,
+            "texto": "Por acá le ofrecemos que en lugar de pagar esos 405,000 pague solamente 128,888 pesos y ya con eso quedaría saldado el crédito. ¿Sí?",
+            "palabras": 23,
+            "confianza": 0.98,
+            "emocion": "positivo",
+            "emocion_intensidad": 0.7
+        },
+        {
+            "id": 10,
+            "speaker": "cliente",
+            "timestamp_inicio": 59,
+            "timestamp_fin": 60,
+            "texto": "Sí.",
+            "palabras": 1,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.3
+        },
+        {
+            "id": 11,
+            "speaker": "agente",
+            "timestamp_inicio": 61,
+            "timestamp_fin": 63.5,
+            "texto": "También tengo un crédito... sí diga.",
+            "palabras": 6,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.4
+        },
+        {
+            "id": 12,
+            "speaker": "cliente",
+            "timestamp_inicio": 64,
+            "timestamp_fin": 66,
+            "texto": "Ya, no, siga, siga.",
+            "palabras": 4,
+            "confianza": 0.99,
+            "emocion": "positivo",
+            "emocion_intensidad": 0.5
+        },
+        {
+            "id": 13,
+            "speaker": "agente",
+            "timestamp_inicio": 107,
+            "timestamp_fin": 120,
+            "texto": "Vale, también tengo un crédito que termina en 6564 que tiene una deuda total de 16,809 pesos, pero si paga solamente 10,607 pesos quedaría saldado el crédito.",
+            "palabras": 27,
+            "confianza": 0.98,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.4
+        },
+        {
+            "id": 14,
+            "speaker": "cliente",
+            "timestamp_inicio": 145,
+            "timestamp_fin": 148.5,
+            "texto": "Ayer pagué uno de 16, quedan 10 mil y algo.",
+            "palabras": 9,
+            "confianza": 0.99,
+            "emocion": "interesado",
+            "emocion_intensidad": 0.6
+        },
+        {
+            "id": 15,
+            "speaker": "agente",
+            "timestamp_inicio": 151,
+            "timestamp_fin": 161,
+            "texto": "El de 16,000 pagaría 10,607 y saldaría...",
+            "palabras": 7,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.4
+        },
+        {
+            "id": 16,
+            "speaker": "cliente",
+            "timestamp_inicio": 162,
+            "timestamp_fin": 168,
+            "texto": "Sí, eso fue lo que pagué ayer y me queda uno de 16 creo, porque eran dos.",
+            "palabras": 15,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.5
+        },
+        {
+            "id": 17,
+            "speaker": "agente",
+            "timestamp_inicio": 171,
+            "timestamp_fin": 175,
+            "texto": "Vale, tiene... yo veo aquí que tiene, ah okay, el que termina en 8512.",
+            "palabras": 14,
+            "confianza": 0.95,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.4
+        },
+        {
+            "id": 18,
+            "speaker": "cliente",
+            "timestamp_inicio": 175.5,
+            "timestamp_fin": 176.5,
+            "texto": "Sí.",
+            "palabras": 1,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.3
+        },
+        {
+            "id": 19,
+            "speaker": "agente",
+            "timestamp_inicio": 177,
+            "timestamp_fin": 181,
+            "texto": "Ajá, sí, ese. ¿Y ese cómo hizo el pago, señora Yessenia?",
+            "palabras": 10,
+            "confianza": 0.99,
+            "emocion": "interesado",
+            "emocion_intensidad": 0.5
+        },
+        {
+            "id": 20,
+            "speaker": "cliente",
+            "timestamp_inicio": 182,
+            "timestamp_fin": 183,
+            "texto": "¿Perdón?",
+            "palabras": 1,
+            "confianza": 0.99,
+            "emocion": "confundido",
+            "emocion_intensidad": 0.4
+        },
+        {
+            "id": 21,
+            "speaker": "agente",
+            "timestamp_inicio": 184,
+            "timestamp_fin": 186,
+            "texto": "¿Cómo hizo el pago de ese crédito?",
+            "palabras": 7,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.4
+        },
+        {
+            "id": 22,
+            "speaker": "cliente",
+            "timestamp_inicio": 187,
+            "timestamp_fin": 188,
+            "texto": "Por la APP.",
+            "palabras": 3,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.5
+        },
+        {
+            "id": 23,
+            "speaker": "cliente",
+            "timestamp_inicio": 190,
+            "timestamp_fin": 195,
+            "texto": "Sí, me salió en oferta y...",
+            "palabras": 6,
+            "confianza": 0.98,
+            "emocion": "positivo",
+            "emocion_intensidad": 0.5
+        },
+        {
+            "id": 24,
+            "speaker": "agente",
+            "timestamp_inicio": 196,
+            "timestamp_fin": 201,
+            "texto": "Pero entonces le quedarían tres créditos, señora Yessenia.",
+            "palabras": 8,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.4
+        },
+        {
+            "id": 25,
+            "speaker": "cliente",
+            "timestamp_inicio": 202,
+            "timestamp_fin": 208,
+            "texto": "Sí, tres solamente. Bueno, yo creo que mañana pago el otro de 16 y me quedarían los dos grandes.",
+            "palabras": 18,
+            "confianza": 0.98,
+            "emocion": "positivo",
+            "emocion_intensidad": 0.6
+        },
+        {
+            "id": 26,
+            "speaker": "agente",
+            "timestamp_inicio": 209,
+            "timestamp_fin": 215,
+            "texto": "Exacto, se quedaría con los dos grandes. Vale, igual lo estaría pagando por la aplicación señora Yessenia.",
+            "palabras": 17,
+            "confianza": 0.99,
+            "emocion": "positivo",
+            "emocion_intensidad": 0.5
+        },
+        {
+            "id": 27,
+            "speaker": "cliente",
+            "timestamp_inicio": 216,
+            "timestamp_fin": 218,
+            "texto": "Sí, porque igual son cuotas.",
+            "palabras": 5,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.4
+        },
+        {
+            "id": 28,
+            "speaker": "agente",
+            "timestamp_inicio": 219,
+            "timestamp_fin": 224,
+            "texto": "Vale, entonces yo voy a colocar que estaría pagando eso y quedarían entonces los más grandes que bueno, poco a poco los va a ir pagando señora Yessenia, ¿sí?",
+            "palabras": 28,
+            "confianza": 0.97,
+            "emocion": "positivo",
+            "emocion_intensidad": 0.6
+        },
+        {
+            "id": 29,
+            "speaker": "cliente",
+            "timestamp_inicio": 225,
+            "timestamp_fin": 235,
+            "texto": "Sí, sí, sí. Incluso ayer había hablado por WhatsApp para ver si podía hacer como juntar esas dos deudas y hacer una sola.",
+            "palabras": 23,
+            "confianza": 0.98,
+            "emocion": "interesado",
+            "emocion_intensidad": 0.6
+        },
+        {
+            "id": 30,
+            "speaker": "agente",
+            "timestamp_inicio": 236,
+            "timestamp_fin": 250,
+            "texto": "Eso tendría que ir directamente en la oficina. Sería una repactación de los créditos, pero sí tiene que ir directamente a la sucursal para poder hacerlo.",
+            "palabras": 25,
+            "confianza": 0.98,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.5
+        },
+        {
+            "id": 31,
+            "speaker": "cliente",
+            "timestamp_inicio": 251,
+            "timestamp_fin": 252.5,
+            "texto": "Ah, ya, okay.",
+            "palabras": 3,
+            "confianza": 0.99,
+            "emocion": "aliviado",
+            "emocion_intensidad": 0.5
+        },
+        {
+            "id": 32,
+            "speaker": "agente",
+            "timestamp_inicio": 253,
+            "timestamp_fin": 257,
+            "texto": "Si quiere puede aprovechar la oferta, pero tendría que ser antes del viernes para que aproveche la oferta que tenemos acá, ¿sí?",
+            "palabras": 22,
+            "confianza": 0.98,
+            "emocion": "interesado",
+            "emocion_intensidad": 0.6
+        },
+        {
+            "id": 33,
+            "speaker": "cliente",
+            "timestamp_inicio": 257.5,
+            "timestamp_fin": 258.5,
+            "texto": "Ya.",
+            "palabras": 1,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.3
+        },
+        {
+            "id": 34,
+            "speaker": "agente",
+            "timestamp_inicio": 260,
+            "timestamp_fin": 262,
+            "texto": "¿Sí tendría disponibilidad señora Yessenia?",
+            "palabras": 5,
+            "confianza": 0.99,
+            "emocion": "interesado",
+            "emocion_intensidad": 0.5
+        },
+        {
+            "id": 35,
+            "speaker": "cliente",
+            "timestamp_inicio": 263,
+            "timestamp_fin": 266.5,
+            "texto": "Yo creo que sí, eso del 120 y ¿cuánto me dijo? ¿128?",
+            "palabras": 11,
+            "confianza": 0.99,
+            "emocion": "interesado",
+            "emocion_intensidad": 0.6
+        },
+        {
+            "id": 36,
+            "speaker": "agente",
+            "timestamp_inicio": 267,
+            "timestamp_fin": 271,
+            "texto": "128,888. Uno es por 128.",
+            "palabras": 5,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.4
+        },
+        {
+            "id": 37,
+            "speaker": "cliente",
+            "timestamp_inicio": 272,
+            "timestamp_fin": 275,
+            "texto": "¿Ese está para el día sábado o no?",
+            "palabras": 8,
+            "confianza": 0.99,
+            "emocion": "interesado",
+            "emocion_intensidad": 0.6
+        },
+        {
+            "id": 38,
+            "speaker": "agente",
+            "timestamp_inicio": 280,
+            "timestamp_fin": 281,
+            "texto": "Sí, sí, para el día sábado sí.",
+            "palabras": 7,
+            "confianza": 0.99,
+            "emocion": "positivo",
+            "emocion_intensidad": 0.6
+        },
+        {
+            "id": 39,
+            "speaker": "cliente",
+            "timestamp_inicio": 281.5,
+            "timestamp_fin": 284,
+            "texto": "Ese es el mismo que me sale por la página, ¿verdad?",
+            "palabras": 10,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.4
+        },
+        {
+            "id": 40,
+            "speaker": "agente",
+            "timestamp_inicio": 285,
+            "timestamp_fin": 291,
+            "texto": "Por la página, sí. Lo que yo voy a hacer es bloquearlo para que ya para el sábado tenga ese mismo monto y no se lo cambien.",
+            "palabras": 25,
+            "confianza": 0.98,
+            "emocion": "positivo",
+            "emocion_intensidad": 0.7
+        },
+        {
+            "id": 41,
+            "speaker": "cliente",
+            "timestamp_inicio": 292,
+            "timestamp_fin": 302,
+            "texto": "Ya. Okay, okay. Sí yo creo que el sábado cancelo ese de 128 y ya me quedaría el otro nomás.",
+            "palabras": 19,
+            "confianza": 0.98,
+            "emocion": "aliviado",
+            "emocion_intensidad": 0.7
+        },
+        {
+            "id": 42,
+            "speaker": "agente",
+            "timestamp_inicio": 302.5,
+            "timestamp_fin": 305,
+            "texto": "Exacto, con el favor de Dios, poco a poco, señora Yessenia.",
+            "palabras": 10,
+            "confianza": 0.99,
+            "emocion": "positivo",
+            "emocion_intensidad": 0.7
+        },
+        {
+            "id": 43,
+            "speaker": "cliente",
+            "timestamp_inicio": 305.5,
+            "timestamp_fin": 306.5,
+            "texto": "Poco a poco. Gracias.",
+            "palabras": 4,
+            "confianza": 0.99,
+            "emocion": "positivo",
+            "emocion_intensidad": 0.6
+        },
+        {
+            "id": 44,
+            "speaker": "agente",
+            "timestamp_inicio": 307,
+            "timestamp_fin": 312,
+            "texto": "Dale, ya coloco esa información por aquí y cualquier cosa estamos a la orden señora Yessenia.",
+            "palabras": 16,
+            "confianza": 0.99,
+            "emocion": "positivo",
+            "emocion_intensidad": 0.6
+        },
+        {
+            "id": 45,
+            "speaker": "cliente",
+            "timestamp_inicio": 313,
+            "timestamp_fin": 315,
+            "texto": "Ya, muchas gracias.",
+            "palabras": 3,
+            "confianza": 0.99,
+            "emocion": "positivo",
+            "emocion_intensidad": 0.6
+        },
+        {
+            "id": 46,
+            "speaker": "agente",
+            "timestamp_inicio": 316,
+            "timestamp_fin": 317.5,
+            "texto": "Muchísimas gracias, feliz día.",
+            "palabras": 4,
+            "confianza": 0.99,
+            "emocion": "positivo",
+            "emocion_intensidad": 0.7
+        },
+        {
+            "id": 47,
+            "speaker": "cliente",
+            "timestamp_inicio": 318,
+            "timestamp_fin": 319,
+            "texto": "Igual.",
+            "palabras": 1,
+            "confianza": 0.99,
+            "emocion": "positivo",
+            "emocion_intensidad": 0.5
+        },
+        {
+            "id": 48,
+            "speaker": "agente",
+            "timestamp_inicio": 320,
+            "timestamp_fin": 321,
+            "texto": "Dale, hasta luego.",
+            "palabras": 3,
+            "confianza": 0.99,
+            "emocion": "neutral",
+            "emocion_intensidad": 0.4
+        }
+    ],
+    "estadisticas_basicas": {
+        "total_segmentos": 49,
+        "segmentos_agente": 25,
+        "segmentos_cliente": 24,
+        "palabras_totales": 526,
+        "palabras_agente": 366,
+        "palabras_cliente": 160,
+        "confianza_promedio": 0.98
+    },
+    "metricas_conversacion": {
+        "ratio_habla_agente": 0.69,
+        "turnos_conversacion": 49,
+        "duracion_promedio_turno_agente": 5.4,
+        "duracion_promedio_turno_cliente": 2.9,
+        "interrupciones": [
+            {
+                "timestamp": 61,
+                "descripcion": "El agente continúa hablando mientras el cliente intenta intervenir."
+            }
+        ],
+        "silencios_prolongados": [
+            {
+                "timestamp_inicio": 66,
+                "duracion_segundos": 41,
+                "contexto": "Gap significativo en la grabación/transcripción de audio entre ofertas."
+            }
+        ]
+    },
+    "analisis_emocional": {
+        "agente": {
+            "emocion_dominante": "positivo",
+            "distribucion": {
+                "neutral": 0.48,
+                "positivo": 0.4,
+                "interesado": 0.12
+            },
+            "intensidad_promedio": 0.52
+        },
+        "cliente": {
+            "emocion_dominante": "neutral",
+            "distribucion": {
+                "neutral": 0.46,
+                "positivo": 0.25,
+                "interesado": 0.21,
+                "aliviado": 0.08
+            },
+            "intensidad_promedio": 0.48
+        },
+        "evolucion_cliente": "mejoro",
+        "momentos_criticos": [
+            {
+                "timestamp": 145,
+                "tipo": "revelacion_situacion",
+                "descripcion": "Cliente revela que ya está pagando activamente sus deudas por cuenta propia.",
+                "emocion_antes": "neutral",
+                "emocion_despues": "interesado",
+                "impacto": "medio"
+            },
+            {
+                "timestamp": 302,
+                "tipo": "aceptacion",
+                "descripcion": "Cliente confirma compromiso de pago para el sábado por el monto de 128k.",
+                "emocion_antes": "interesado",
+                "emocion_despues": "aliviado",
+                "impacto": "alto"
+            }
+        ]
+    },
+    "speaker_mapping": {
+        "SPEAKER_00": "agente",
+        "SPEAKER_01": "cliente",
+        "confidence": 0.99,
+        "method": "first_speaker_identifies_company"
+    }
+}

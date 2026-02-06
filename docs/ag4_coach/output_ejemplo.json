@@ -1,0 +1,147 @@
+{
+  "_descripcion": "Output completo del Agente Coach para INSERT en coaching_reports",
+  
+  "agente_id": "11111111-2222-3333-4444-555555555555",
+  "fecha_reporte": "2026-02-04",
+  
+  "periodo_evaluado": {
+    "inicio": "2026-01-28",
+    "fin": "2026-02-03",
+    "dias": 7,
+    "llamadas_analizadas": 25
+  },
+  
+  "metricas_periodo": {
+    "score_promedio": 72,
+    "score_contacto_promedio": 78,
+    "score_compromiso_promedio": 66,
+    "tasa_validacion_explicita": 0.20,
+    "tasa_validacion_total": 0.60,
+    "tasa_abandono": 0.08,
+    "probabilidad_cumplimiento_promedio": 58,
+    "total_llamadas": 25,
+    "llamadas_con_compromiso": 18,
+    "monto_total_comprometido": 2450000
+  },
+  
+  "distribucion_scores": {
+    "excelente_80_100": 6,
+    "bueno_60_79": 12,
+    "regular_40_59": 5,
+    "bajo_0_39": 2
+  },
+  
+  "tendencia": {
+    "vs_semana_anterior": 5,
+    "direccion": "mejorando",
+    "racha": 2
+  },
+  
+  "comparativa_equipo": {
+    "score_promedio_equipo": 78,
+    "ranking": 8,
+    "total_agentes_equipo": 12,
+    "percentil": 65,
+    "distancia_al_mejor": -20,
+    "distancia_al_promedio": -6
+  },
+  
+  "fortalezas": [
+    {
+      "area": "manejo_objeciones",
+      "descripcion": "Excelente capacidad para responder dudas y manejar resistencia del cliente de forma empatica",
+      "evidencia": "Solo 2 objeciones no resueltas en 25 llamadas. Score promedio en manejo: 22/25 pts"
+    },
+    {
+      "area": "identificacion_cliente",
+      "descripcion": "Verificacion de identidad consistente y profesional en todas las llamadas",
+      "evidencia": "100% de llamadas con verificacion correcta. Score promedio: 15/15 pts"
+    },
+    {
+      "area": "tono_positivo",
+      "descripcion": "Mantiene un tono profesional, amable y empatico incluso en llamadas dificiles",
+      "evidencia": "Emocion dominante 'positivo' en 68% de sus segmentos. Evolucion cliente: mejoro en 72% de llamadas"
+    }
+  ],
+  
+  "gap_critico": {
+    "area": "validacion_compromiso",
+    "descripcion": "Solo el 20% de los compromisos tienen validacion explicita del cliente",
+    "impacto": "Reduce la probabilidad de cumplimiento en aproximadamente 35%. Los compromisos con validacion implicita tienen 40% menos probabilidad de cumplirse",
+    "benchmark_equipo": "El promedio del equipo es 42% de validacion explicita, Maria esta 22 puntos por debajo",
+    "ejemplo_llamada": "anal-005 - Cliente dijo 'ok, entiendo' pero no confirmo monto ni fecha especifica"
+  },
+  
+  "plan_mejora": {
+    "objetivo_semanal": "Lograr validacion explicita en al menos 40% de los compromisos (subir de 20% a 40%)",
+    "acciones": [
+      {
+        "accion": "Antes de cerrar, usar la frase: 'Entonces confirmo, usted pagara [MONTO] el [FECHA] por [METODO], es correcto?'",
+        "cuando": "En cada llamada donde hay un compromiso de pago",
+        "prioridad": "alta"
+      },
+      {
+        "accion": "No aceptar respuestas como 'ok', 'ya', 'entiendo' como validacion. Pedir confirmacion explicita",
+        "cuando": "Cuando el cliente responde de forma ambigua",
+        "prioridad": "alta"
+      },
+      {
+        "accion": "Repetir el compromiso completo (monto, fecha, metodo) al menos 2 veces durante el cierre",
+        "cuando": "En los ultimos 60 segundos de cada llamada con compromiso",
+        "prioridad": "media"
+      }
+    ],
+    "recursos_sugeridos": [
+      "Video: Tecnicas de cierre efectivo en cobranzas (15 min)",
+      "Script: Frases de validacion explicita",
+      "Ejercicio: Role-play de cierres con supervisor"
+    ]
+  },
+  
+  "progreso_objetivo_anterior": {
+    "objetivo_anterior": "Reducir tasa de abandono a menos del 10%",
+    "resultado": "cumplido",
+    "valor_logrado": "8%",
+    "nota": "Excelente mejora! Bajo de 12% a 8% de abandono. Las tecnicas de rapport estan funcionando"
+  },
+  
+  "mensaje_motivacional": "Maria, tu progreso es notable: subiste 5 puntos esta semana y cumpliste tu objetivo de reducir abandonos. Tu fortaleza en manejo de objeciones es un activo valioso. Esta semana, el siguiente paso es cerrar con fuerza: una validacion explicita puede ser la diferencia entre un compromiso cumplido y uno olvidado. Estas a 6 puntos del promedio del equipo, y se que puedes alcanzarlo!",
+  
+  "metricas_destacadas": {
+    "mejor_metrica": {
+      "nombre": "Tasa de abandono",
+      "valor": "8%",
+      "vs_equipo": "-25% mejor que equipo (6% equipo)"
+    },
+    "metrica_mejorar": {
+      "nombre": "Validacion explicita",
+      "valor": "20%",
+      "vs_equipo": "-52% peor que equipo (42% equipo)"
+    }
+  },
+  
+  "recomendacion_supervisor": "Maria ha demostrado mejora sostenida las ultimas 2 semanas. Recomiendo escuchar con ella 2-3 grabaciones donde logro validacion explicita vs donde no, para que identifique el patron. Tiene el talento para estar en el top 5.",
+  
+  "alertas_periodo": [
+    {
+      "fecha": "2026-02-02",
+      "tipo": "ABANDONO_CLIENTE",
+      "descripcion": "Cliente abandono la llamada",
+      "impacto_score": "Afecto score de esa llamada (-15 pts)"
+    },
+    {
+      "fecha": "2026-02-01",
+      "tipo": "SCORE_BAJO",
+      "descripcion": "Score 42 en llamada",
+      "impacto_score": "Bajo el promedio semanal"
+    }
+  ],
+  
+  "metadata": {
+    "modelo_usado": "claude-opus-4-5-20250514",
+    "version_prompt": "v1.0",
+    "tiempo_generacion_ms": 4500,
+    "confianza_analisis": 0.88
+  }
+}
+

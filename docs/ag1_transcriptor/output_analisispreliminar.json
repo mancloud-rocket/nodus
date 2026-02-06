@@ -1,0 +1,181 @@
+{
+    "entidades": {
+        "montos": [
+            {
+                "valor": 405302,
+                "moneda": "CLP",
+                "contexto": "deuda_principal",
+                "segmento_id": 8,
+                "frase_exacta": "deuda de 405,302 pesos"
+            },
+            {
+                "valor": 128888,
+                "moneda": "CLP",
+                "contexto": "oferta_descuento",
+                "segmento_id": 9,
+                "frase_exacta": "pague solamente 128,888 pesos"
+            },
+            {
+                "valor": 16809,
+                "moneda": "CLP",
+                "contexto": "deuda_secundaria",
+                "segmento_id": 13,
+                "frase_exacta": "deuda total de 16,809 pesos"
+            },
+            {
+                "valor": 10607,
+                "moneda": "CLP",
+                "contexto": "oferta_descuento_secundaria",
+                "segmento_id": 13,
+                "frase_exacta": "paga solamente 10,607 pesos"
+            }
+        ],
+        "fechas": [
+            {
+                "fecha_relativa": "mañana",
+                "fecha_iso": "no_detectado",
+                "contexto": "compromiso_pago_menor",
+                "segmento_id": 25,
+                "frase_exacta": "mañana pago el otro de 16"
+            },
+            {
+                "fecha_relativa": "antes del viernes",
+                "fecha_iso": "no_detectado",
+                "contexto": "limite_oferta",
+                "segmento_id": 32,
+                "frase_exacta": "tendría que ser antes del viernes"
+            },
+            {
+                "fecha_relativa": "el sábado",
+                "fecha_iso": "no_detectado",
+                "contexto": "compromiso_pago_principal",
+                "segmento_id": 41,
+                "frase_exacta": "el sábado cancelo ese de 128"
+            }
+        ],
+        "metodos_pago": [
+            {
+                "metodo": "app_movil",
+                "mencionado_por": "cliente",
+                "segmento_id": 22,
+                "frase_exacta": "Por la APP"
+            },
+            {
+                "metodo": "web",
+                "mencionado_por": "cliente",
+                "segmento_id": 39,
+                "frase_exacta": "por la página"
+            }
+        ],
+        "referencias_creditos": [
+            {
+                "identificador": "8569",
+                "tipo": "terminacion_cuenta",
+                "monto_deuda": 405302,
+                "monto_oferta": 128888,
+                "segmento_id": 8
+            },
+            {
+                "identificador": "6564",
+                "tipo": "terminacion_cuenta",
+                "monto_deuda": 16809,
+                "monto_oferta": 10607,
+                "segmento_id": 13
+            },
+            {
+                "identificador": "8512",
+                "tipo": "terminacion_cuenta",
+                "monto_deuda": 16000,
+                "monto_oferta": null,
+                "segmento_id": 17
+            }
+        ],
+        "objeciones": [
+            {
+                "tipo": "ninguna",
+                "descripcion": "La cliente muestra disposición al pago y ya está realizando gestiones por su cuenta.",
+                "segmento_id": null,
+                "frase_exacta": null,
+                "fue_manejada": null,
+                "resultado_manejo": null
+            }
+        ],
+        "compromisos": [
+            {
+                "tipo": "pago_total_con_descuento",
+                "credito_referencia": "8569",
+                "monto": 128888,
+                "moneda": "CLP",
+                "fecha_relativa": "el sábado",
+                "fecha_iso": "no_detectado",
+                "validacion": "explicita",
+                "segmento_id": 41,
+                "frase_validacion": "Sí yo creo que el sábado cancelo ese de 128",
+                "confianza": 0.95
+            },
+            {
+                "tipo": "pago_total_con_descuento",
+                "credito_referencia": "6564",
+                "monto": 10607,
+                "moneda": "CLP",
+                "fecha_relativa": "mañana",
+                "fecha_iso": "no_detectado",
+                "validacion": "explicita",
+                "segmento_id": 25,
+                "frase_validacion": "Bueno, yo creo que mañana pago el otro de 16",
+                "confianza": 0.9
+            }
+        ]
+    },
+    "patrones_script": {
+        "saludo_correcto": true,
+        "identificacion_empresa": true,
+        "identificacion_agente": true,
+        "verificacion_identidad_cliente": true,
+        "explicacion_motivo": true,
+        "mencion_monto_deuda": true,
+        "presentacion_ofertas": true,
+        "mencion_consecuencias": false,
+        "intento_cierre": true,
+        "despedida_correcta": true,
+        "score_script": 90,
+        "notas_script": "El agente cumplió con casi todo el protocolo; no mencionó consecuencias de no pago, pero dado el perfil pagador de la cliente, priorizó la oferta y el cierre positivo."
+    },
+    "resultado_llamada": {
+        "tipo_cierre": "compromiso_explicito",
+        "hubo_abandono": false,
+        "abandono_info": null,
+        "compromiso_logrado": true,
+        "monto_total_comprometido": 139495,
+        "moneda": "CLP",
+        "fecha_compromiso": "proximo_sabado",
+        "metodo_pago_acordado": "app_movil",
+        "riesgo_incumplimiento": "bajo",
+        "razon_riesgo": "La cliente ya realizó un pago el día anterior y tiene una actitud proactiva y aliviada al recibir los descuentos."
+    },
+    "seguimiento": {
+        "requiere_seguimiento": true,
+        "tipo_seguimiento": "confirmacion_pago",
+        "fecha_sugerida": "no_detectado",
+        "prioridad": "media",
+        "notas": "Verificar el pago de 10,607 CLP mañana y el de 128,888 CLP el lunes. La cliente consultó por repactación de deudas grandes, derivar a sucursal si cumple con estos pagos."
+    },
+    "resumen_ejecutivo": {
+        "duracion_segundos": 321,
+        "resultado": "exitoso",
+        "descripcion": "Llamada de cobranza altamente efectiva donde la cliente Yessenia González confirmó dos compromisos de pago tras recibir ofertas de descuento significativas. La cliente ya es pagadora activa (pagó un crédito ayer).",
+        "puntos_clave": [
+            "Compromiso de pago de 128,888 CLP (crédito 8569) para el sábado.",
+            "Compromiso de pago de 10,607 CLP (crédito 6564) para mañana.",
+            "Cliente ya pagó un tercer crédito (8512) el día anterior vía APP.",
+            "Interés de la cliente en consolidar/repactar deudas restantes en sucursal.",
+            "Evolución emocional positiva: de neutral a aliviada/agradecida."
+        ],
+        "alertas": [],
+        "recommendaciones": [
+            "Bloquear la oferta en el sistema para asegurar que el monto no cambie el sábado como prometió el agente.",
+            "Contactar el lunes para confirmar la liquidación de ambos créditos.",
+            "Proveer dirección de sucursal cercana si la cliente solicita la repactación mencionada."
+        ]
+    }
+}

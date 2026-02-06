@@ -1,0 +1,246 @@
+{
+  "_descripcion": "Output del Agente Detector - Alertas generadas y resumen diario",
+  
+  "alertas_generadas": [
+    {
+      "alerta_id": "alert-001-2026-02-04",
+      "tipo": "agente",
+      "severidad": "critica",
+      "codigo": "AGENTE_SCORE_CRITICO",
+      "descripcion": "Score promedio critico (36) en ultimas 24h",
+      "agente_id": "22222222-3333-4444-5555-666666666666",
+      "agente_nombre": "Pedro Ruiz",
+      "equipo": "Equipo Sur",
+      "datos": {
+        "score_promedio": 36,
+        "total_llamadas": 20,
+        "llamadas_criticas": 12,
+        "umbral": 40
+      },
+      "accion_requerida": "Intervencion inmediata - coaching urgente",
+      "fecha_periodo": "2026-02-04",
+      "estado": "activa",
+      "leida": false,
+      "resuelta": false,
+      "created_at": "2026-02-04T07:05:00Z"
+    },
+    {
+      "alerta_id": "alert-002-2026-02-04",
+      "tipo": "patron",
+      "severidad": "alta",
+      "codigo": "PATRON_LLAMADAS_CRITICAS",
+      "descripcion": "12 llamadas con score critico (<40) en 24h",
+      "agente_id": "22222222-3333-4444-5555-666666666666",
+      "agente_nombre": "Pedro Ruiz",
+      "equipo": "Equipo Sur",
+      "datos": {
+        "llamadas_criticas": 12,
+        "total_llamadas": 20,
+        "porcentaje": 60
+      },
+      "accion_requerida": "Revision urgente de casos criticos",
+      "fecha_periodo": "2026-02-04",
+      "estado": "activa",
+      "leida": false,
+      "resuelta": false,
+      "created_at": "2026-02-04T07:05:00Z"
+    },
+    {
+      "alerta_id": "alert-003-2026-02-04",
+      "tipo": "agente",
+      "severidad": "alta",
+      "codigo": "AGENTE_ABANDONO_ALTO",
+      "descripcion": "Tasa de abandono alta (30%) en ultimas 24h",
+      "agente_id": "22222222-3333-4444-5555-666666666666",
+      "agente_nombre": "Pedro Ruiz",
+      "equipo": "Equipo Sur",
+      "datos": {
+        "tasa_abandono": 0.30,
+        "abandonos": 6,
+        "total_llamadas": 20,
+        "umbral": 0.20
+      },
+      "accion_requerida": "Revisar grabaciones y dar feedback sobre rapport",
+      "fecha_periodo": "2026-02-04",
+      "estado": "activa",
+      "leida": false,
+      "resuelta": false,
+      "created_at": "2026-02-04T07:05:00Z"
+    },
+    {
+      "alerta_id": "alert-004-2026-02-04",
+      "tipo": "agente",
+      "severidad": "alta",
+      "codigo": "AGENTE_SIN_VALIDACION",
+      "descripcion": "Tasa de validacion explicita muy baja (5%) en ultimas 24h",
+      "agente_id": "22222222-3333-4444-5555-666666666666",
+      "agente_nombre": "Pedro Ruiz",
+      "equipo": "Equipo Sur",
+      "datos": {
+        "tasa_validacion": 0.05,
+        "validaciones": 1,
+        "total_llamadas": 20,
+        "umbral": 0.15
+      },
+      "accion_requerida": "Reforzar tecnicas de cierre y validacion",
+      "fecha_periodo": "2026-02-04",
+      "estado": "activa",
+      "leida": false,
+      "resuelta": false,
+      "created_at": "2026-02-04T07:05:00Z"
+    },
+    {
+      "alerta_id": "alert-005-2026-02-04",
+      "tipo": "agente",
+      "severidad": "media",
+      "codigo": "AGENTE_CAIDA_SCORE",
+      "descripcion": "Caida de score del 39% vs dia anterior",
+      "agente_id": "22222222-3333-4444-5555-666666666666",
+      "agente_nombre": "Pedro Ruiz",
+      "equipo": "Equipo Sur",
+      "datos": {
+        "score_hoy": 36,
+        "score_ayer": 59,
+        "caida_porcentaje": 39
+      },
+      "accion_requerida": "Investigar causa de la caida",
+      "fecha_periodo": "2026-02-04",
+      "estado": "activa",
+      "leida": false,
+      "resuelta": false,
+      "created_at": "2026-02-04T07:05:00Z"
+    },
+    {
+      "alerta_id": "alert-006-2026-02-04",
+      "tipo": "agente",
+      "severidad": "alta",
+      "codigo": "AGENTE_SCORE_BAJO",
+      "descripcion": "Score promedio bajo (52) en ultimas 24h",
+      "agente_id": "33333333-4444-5555-6666-777777777777",
+      "agente_nombre": "Juan Lopez",
+      "equipo": "Equipo Norte",
+      "datos": {
+        "score_promedio": 52,
+        "total_llamadas": 18,
+        "umbral": 55
+      },
+      "accion_requerida": "Incluir en revision de coaching prioritaria",
+      "fecha_periodo": "2026-02-04",
+      "estado": "activa",
+      "leida": false,
+      "resuelta": false,
+      "created_at": "2026-02-04T07:05:00Z"
+    },
+    {
+      "alerta_id": "alert-007-2026-02-04",
+      "tipo": "agente",
+      "severidad": "media",
+      "codigo": "AGENTE_CAIDA_SCORE",
+      "descripcion": "Caida de score del 24% vs dia anterior",
+      "agente_id": "33333333-4444-5555-6666-777777777777",
+      "agente_nombre": "Juan Lopez",
+      "equipo": "Equipo Norte",
+      "datos": {
+        "score_hoy": 52,
+        "score_ayer": 69,
+        "caida_porcentaje": 24
+      },
+      "accion_requerida": "Investigar causa de la caida",
+      "fecha_periodo": "2026-02-04",
+      "estado": "activa",
+      "leida": false,
+      "resuelta": false,
+      "created_at": "2026-02-04T07:05:00Z"
+    }
+  ],
+  
+  "resumen_diario": {
+    "fecha": "2026-02-04",
+    "periodo": {
+      "inicio": "2026-02-03T07:00:00Z",
+      "fin": "2026-02-04T07:00:00Z"
+    },
+    "metricas": {
+      "total_llamadas": 450,
+      "score_promedio": 72,
+      "tasa_abandono": 8,
+      "tasa_validacion": 39,
+      "vs_ayer": {
+        "llamadas": "+7%",
+        "score": "-2",
+        "abandono": "+1%"
+      }
+    },
+    "alertas": {
+      "total": 7,
+      "criticas": 1,
+      "altas": 4,
+      "medias": 2,
+      "bajas": 0
+    },
+    "agentes_con_alertas": [
+      {
+        "agente_id": "22222222-3333-4444-5555-666666666666",
+        "nombre": "Pedro Ruiz",
+        "equipo": "Equipo Sur",
+        "cantidad_alertas": 5,
+        "alertas": [
+          "AGENTE_SCORE_CRITICO",
+          "PATRON_LLAMADAS_CRITICAS",
+          "AGENTE_ABANDONO_ALTO",
+          "AGENTE_SIN_VALIDACION",
+          "AGENTE_CAIDA_SCORE"
+        ]
+      },
+      {
+        "agente_id": "33333333-4444-5555-6666-777777777777",
+        "nombre": "Juan Lopez",
+        "equipo": "Equipo Norte",
+        "cantidad_alertas": 2,
+        "alertas": [
+          "AGENTE_SCORE_BAJO",
+          "AGENTE_CAIDA_SCORE"
+        ]
+      }
+    ],
+    "alertas_sistemicas": [],
+    "agentes_destacados": [
+      {
+        "nombre": "Ana Martinez",
+        "score": 82,
+        "validacion": "64%"
+      },
+      {
+        "nombre": "Maria Garcia",
+        "score": 78,
+        "validacion": "48%"
+      }
+    ]
+  },
+  
+  "notificaciones_enviadas": {
+    "slack": {
+      "enviado": true,
+      "canal": "#alertas-cobranza",
+      "razon": "1 alerta critica detectada",
+      "timestamp": "2026-02-04T07:05:15Z"
+    },
+    "email": {
+      "enviado": true,
+      "destinatarios": ["director@empresa.com", "supervisor@empresa.com"],
+      "asunto": "URGENTE: 1 Alerta Critica + 4 Altas - Reporte 2026-02-04",
+      "timestamp": "2026-02-04T07:05:18Z"
+    },
+    "in_app": {
+      "enviado": true,
+      "notificaciones_creadas": 8,
+      "timestamp": "2026-02-04T07:05:12Z"
+    }
+  },
+  
+  "metadata": {
+    "tiempo_ejecucion_ms": 4850,
+    "alertas_filtradas_duplicados": 0,
+    "version": "2.0"
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "_descripcion": "Input completo que recibe el Agente Coach para generar un reporte",
+  
+  "agente": {
+    "agente_id": "11111111-2222-3333-4444-555555555555",
+    "nombre": "Maria Garcia",
+    "email": "maria.garcia@empresa.com",
+    "equipo": "Equipo Norte",
+    "supervisor_id": "99999999-8888-7777-6666-555555555555",
+    "fecha_ingreso": "2025-10-15",
+    "estado": "activo",
+    "dias_activo": 112
+  },
+  
+  "ultimos_25_analisis": [
+    {
+      "analisis_id": "anal-001",
+      "fecha": "2026-02-03",
+      "score_total": 85,
+      "score_contacto_directo": 90,
+      "score_compromiso_pago": 80,
+      "validacion_tipo": "explicita",
+      "hubo_abandono": false,
+      "probabilidad_cumplimiento": 78,
+      "monto_comprometido": 150000
+    },
+    {
+      "analisis_id": "anal-002",
+      "fecha": "2026-02-03",
+      "score_total": 72,
+      "score_contacto_directo": 80,
+      "score_compromiso_pago": 64,
+      "validacion_tipo": "implicita",
+      "hubo_abandono": false,
+      "probabilidad_cumplimiento": 52,
+      "monto_comprometido": 80000
+    },
+    {
+      "analisis_id": "anal-003",
+      "fecha": "2026-02-02",
+      "score_total": 45,
+      "score_contacto_directo": 60,
+      "score_compromiso_pago": 30,
+      "validacion_tipo": "ninguna",
+      "hubo_abandono": true,
+      "probabilidad_cumplimiento": 15,
+      "monto_comprometido": 0
+    },
+    {
+      "analisis_id": "anal-004",
+      "fecha": "2026-02-02",
+      "score_total": 78,
+      "score_contacto_directo": 85,
+      "score_compromiso_pago": 71,
+      "validacion_tipo": "explicita",
+      "hubo_abandono": false,
+      "probabilidad_cumplimiento": 72,
+      "monto_comprometido": 200000
+    },
+    {
+      "analisis_id": "anal-005",
+      "fecha": "2026-02-01",
+      "score_total": 68,
+      "score_contacto_directo": 75,
+      "score_compromiso_pago": 61,
+      "validacion_tipo": "implicita",
+      "hubo_abandono": false,
+      "probabilidad_cumplimiento": 48,
+      "monto_comprometido": 95000
+    }
+  ],
+  
+  "metricas_calculadas": {
+    "periodo": {
+      "inicio": "2026-01-28",
+      "fin": "2026-02-03",
+      "dias": 7
+    },
+    "score_promedio": 72,
+    "score_contacto_promedio": 78,
+    "score_compromiso_promedio": 66,
+    "total_llamadas": 25,
+    "llamadas_con_compromiso": 18,
+    "validaciones_explicitas": 5,
+    "validaciones_implicitas": 10,
+    "sin_validacion": 10,
+    "tasa_validacion_explicita": 0.20,
+    "tasa_validacion_total": 0.60,
+    "abandonos": 2,
+    "tasa_abandono": 0.08,
+    "probabilidad_cumplimiento_promedio": 58,
+    "monto_total_comprometido": 2450000,
+    "distribucion_scores": {
+      "excelente_80_100": 6,
+      "bueno_60_79": 12,
+      "regular_40_59": 5,
+      "bajo_0_39": 2
+    }
+  },
+  
+  "comparativa_equipo": {
+    "equipo": "Equipo Norte",
+    "total_agentes": 12,
+    "score_promedio_equipo": 78,
+    "tasa_validacion_equipo": 0.42,
+    "tasa_abandono_equipo": 0.06,
+    "ranking_agente": 8,
+    "percentil": 65,
+    "top_performer": {
+      "nombre": "Carlos Mendez",
+      "score": 92
+    },
+    "promedio_equipo_detalle": {
+      "score_contacto": 82,
+      "score_compromiso": 74,
+      "probabilidad_cumplimiento": 68
+    }
+  },
+  
+  "reporte_anterior": {
+    "fecha_reporte": "2026-01-28",
+    "metricas_periodo": {
+      "score_promedio": 67,
+      "tasa_validacion_explicita": 0.15,
+      "tasa_abandono": 0.12
+    },
+    "gap_critico": {
+      "area": "tasa_abandono",
+      "objetivo": "Reducir abandono a menos del 10%"
+    },
+    "plan_mejora": {
+      "objetivo_semanal": "Reducir tasa de abandono a <10%",
+      "acciones": [
+        "Establecer rapport en primeros 30 segundos",
+        "No presionar cierre antes de 2 minutos"
+      ]
+    }
+  },
+  
+  "alertas_periodo": [
+    {
+      "alerta_id": "alert-001",
+      "fecha": "2026-02-02",
+      "codigo": "ABANDONO_CLIENTE",
+      "severidad": "alta",
+      "descripcion": "Cliente abandono la llamada"
+    },
+    {
+      "alerta_id": "alert-002",
+      "fecha": "2026-02-01",
+      "codigo": "SCORE_BAJO",
+      "severidad": "alta",
+      "descripcion": "Score 42 en llamada"
+    }
+  ],
+  
+  "muestra_llamadas": {
+    "mejores": [
+      {
+        "analisis_id": "anal-001",
+        "fecha": "2026-02-03",
+        "score_total": 85,
+        "validacion": "explicita",
+        "monto_comprometido": 150000,
+        "duracion_segundos": 245,
+        "resumen": "Excelente manejo de objeciones, cierre efectivo"
+      },
+      {
+        "analisis_id": "anal-004",
+        "fecha": "2026-02-02",
+        "score_total": 78,
+        "validacion": "explicita",
+        "monto_comprometido": 200000,
+        "duracion_segundos": 312,
+        "resumen": "Cliente dificil manejado con paciencia"
+      }
+    ],
+    "peores": [
+      {
+        "analisis_id": "anal-003",
+        "fecha": "2026-02-02",
+        "score_total": 45,
+        "validacion": "ninguna",
+        "monto_comprometido": 0,
+        "duracion_segundos": 98,
+        "razon_bajo_score": "Abandono por cliente, sin establecer rapport"
+      }
+    ]
+  }
+}
+
