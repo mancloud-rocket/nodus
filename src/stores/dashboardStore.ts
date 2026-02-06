@@ -299,11 +299,11 @@ export const useDashboardStore = create<DashboardState>((set, get) => ({
 
       if (error) throw error
 
-      const llamadas = (data || []).map((item: Record<string, unknown>) => ({
-        ...item,
+      const llamadas = (data || []).map((item) => ({
+        ...(item as unknown as RegistroLlamada),
         agente_nombre: (item.agente as { nombre: string } | null)?.nombre,
-        analisis: item.analisis?.[0] as AnalisisLlamada | undefined
-      }))
+        analisis: (item.analisis as AnalisisLlamada[] | undefined)?.[0] as AnalisisLlamada | undefined
+      })) as LlamadaConAnalisis[]
 
       set({ llamadasRecientes: llamadas })
     } catch (error) {

@@ -131,11 +131,11 @@ export function useLlamadas(limit = 50) {
 
     if (error) throw error
     
-    return (data || []).map((item: Record<string, unknown>) => ({
-      ...item,
+    return (data || []).map((item) => ({
+      ...(item as unknown as RegistroLlamada),
       agente: item.agente as unknown as Agente,
       analisis: (item.analisis as AnalisisLlamada[] | undefined)?.[0] as AnalisisLlamada | undefined
-    }))
+    })) as LlamadaConAnalisis[]
   }, [limit])
 }
 
@@ -175,10 +175,10 @@ export function useLlamadasPorAgente(agenteId: string | undefined, limit = 25) {
 
     if (error) throw error
     
-    return (data || []).map((item: Record<string, unknown>) => ({
-      ...item,
+    return (data || []).map((item) => ({
+      ...(item as unknown as RegistroLlamada),
       analisis: (item.analisis as AnalisisLlamada[] | undefined)?.[0] as AnalisisLlamada | undefined
-    }))
+    })) as LlamadaConAnalisis[]
   }, [agenteId, limit])
 }
 

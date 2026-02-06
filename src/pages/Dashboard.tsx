@@ -7,6 +7,7 @@ import { KPICard, MetricCard, AlertasActivas, ActividadReciente, TopPerformers }
 import { TrendChart } from '@/components/charts/TrendChart'
 import { formatNumber, formatCurrency, formatPercentage } from '@/lib/utils'
 import { useDashboard } from '@/hooks/useDashboard'
+import type { AlertaAnomalia } from '@/types'
 
 // Mock data como fallback
 import { mockAlertas, mockLlamadas, mockAnalisis } from '@/data/mockData'
@@ -48,7 +49,7 @@ export function Dashboard() {
       perdida_oportunidades: (a.impacto_estimado as Record<string, number>)?.perdida_oportunidades || 0
     },
     accion_recomendada: {
-      urgencia: (a.accion_recomendada as Record<string, string>)?.urgencia || '',
+      urgencia: ((a.accion_recomendada as Record<string, string>)?.urgencia || 'hoy') as 'inmediata' | 'hoy' | 'esta_semana',
       destinatario: (a.accion_recomendada as Record<string, string>)?.destinatario || '',
       accion: (a.accion_recomendada as Record<string, string>)?.accion || ''
     },
@@ -56,7 +57,7 @@ export function Dashboard() {
     estado: a.estado,
     notificacion_enviada: a.notificacion_enviada || false,
     created_at: a.created_at
-  })) : mockAlertas
+  })) as AlertaAnomalia[] : mockAlertas
 
   const displayLlamadas = llamadasRecientes.length > 0 ? llamadasRecientes.map(l => ({
     llamada_id: l.registro_id,
