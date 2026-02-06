@@ -4,7 +4,6 @@ import type {
   Agente, 
   AlertaAnomalia,
   Transcripcion,
-  CoachingReport,
   DashboardMetrics,
   TendenciaDia
 } from '@/types'

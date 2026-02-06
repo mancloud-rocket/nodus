@@ -202,9 +202,9 @@ export function ContactoDirecto() {
                           {agente.score_contacto}
                         </Badge>
                       </td>
-                      <td className="py-3 px-4 text-center text-sm">{agente.pct_monto || '-'}%</td>
-                      <td className="py-3 px-4 text-center text-sm">{agente.pct_fecha || '-'}%</td>
-                      <td className="py-3 px-4 text-center text-sm">{agente.pct_buen_manejo || '-'}%</td>
+                      <td className="py-3 px-4 text-center text-sm">{(agente as Record<string, unknown>).pct_monto as number || '-'}%</td>
+                      <td className="py-3 px-4 text-center text-sm">{(agente as Record<string, unknown>).pct_fecha as number || '-'}%</td>
+                      <td className="py-3 px-4 text-center text-sm">{(agente as Record<string, unknown>).pct_buen_manejo as number || '-'}%</td>
                       <td className="py-3 px-4 text-center">
                         {index < 2 ? (
                           <TrendingUp className="w-4 h-4 text-emerald-500 mx-auto" />

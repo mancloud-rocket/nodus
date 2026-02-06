@@ -81,7 +81,7 @@ export function AudioPlayer({ audioUrl, duration, onTimeUpdate, className }: Aud
   const progress = (currentTime / duration) * 100
 
   return (
-    <Card variant="glass" className={className}>
+    <Card className={className}>
       <CardContent className="p-4">
         <audio ref={audioRef} src={audioUrl} preload="metadata" />
         
@@ -136,7 +136,7 @@ export function AudioPlayer({ audioUrl, duration, onTimeUpdate, className }: Aud
             </Button>
             
             <Button
-              variant="glow"
+              variant="default"
               size="icon"
               onClick={togglePlay}
               className="w-12 h-12"

@@ -1,6 +1,5 @@
 import { User, Headphones, Smile, Meh, Frown } from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { cn, formatDuration } from '@/lib/utils'
 import { motion } from 'framer-motion'
@@ -24,7 +23,7 @@ export function TranscripcionViewer({
   currentTime = 0 
 }: TranscripcionViewerProps) {
   return (
-    <Card variant="glass">
+    <Card>
       <CardHeader className="pb-3">
         <CardTitle className="text-base">Transcripción</CardTitle>
       </CardHeader>

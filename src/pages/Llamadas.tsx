@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 import { Search, Plus, SlidersHorizontal, MoreHorizontal, ChevronLeft, ChevronRight, Edit, Eye, RefreshCw, Wifi, WifiOff } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Header } from '@/components/layout/Header'
@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
-import { cn, formatDuration, formatRelativeTime } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 import { useLlamadas } from '@/hooks/useSupabase'
 import { useAnalisisRealtime } from '@/hooks/useRealtime'
 import { isSupabaseConfigured } from '@/lib/supabase'
@@ -190,7 +190,6 @@ export function Llamadas() {
                 ) : (
                   filteredLlamadas.map(({ llamada, analisis }) => {
                     const score = analisis?.score_total
-                    const prob = (analisis as any)?.prediccion_cumplimiento?.probabilidad
 
                     return (
                       <tr key={llamada.llamada_id} className="border-b border-border hover:bg-accent/50 transition-colors">

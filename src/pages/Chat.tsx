@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react'
 import { Send, Sparkles, User, Bot, Loader2, Trash2, Wifi, WifiOff } from 'lucide-react'
 import { Header } from '@/components/layout/Header'
-import { Card, CardContent } from '@/components/ui/card'
+import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'

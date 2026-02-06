@@ -8,7 +8,7 @@ interface HeaderProps {
   subtitle?: string
 }
 
-export function Header({ title }: HeaderProps) {
+export function Header({ title: _title }: HeaderProps) {
   return (
     <header className="sticky top-0 z-30 h-14 bg-background border-b border-border">
       <div className="flex items-center justify-between h-full px-6">

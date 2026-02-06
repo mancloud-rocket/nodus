@@ -10,8 +10,6 @@ import type { AlertaAnomalia, AnalisisLlamada, CoachingReport, RegistroLlamada }
 
 // ---------- Types ----------
 
-type RealtimeEvent = 'INSERT' | 'UPDATE' | 'DELETE'
-
 interface RealtimeCallbacks {
   onNuevaAlerta?: (alerta: AlertaAnomalia) => void
   onAlertaActualizada?: (alerta: AlertaAnomalia) => void
@@ -119,7 +117,7 @@ export function useRealtime(callbacks: RealtimeCallbacks) {
     const channel = setupChannel()
     
     if (channel) {
-      channel.subscribe((status) => {
+      channel.subscribe((status: string) => {
         if (status === 'SUBSCRIBED') {
           console.log('Realtime connected')
         } else if (status === 'CHANNEL_ERROR') {
@@ -158,7 +156,7 @@ export function useAlertasRealtime(onNueva: (alerta: AlertaAnomalia) => void) {
           schema: 'public',
           table: 'alertas_anomalias'
         },
-        (payload) => {
+        (payload: RealtimePostgresChangesPayload<AlertaAnomalia>) => {
           if (payload.new) {
             onNueva(payload.new as AlertaAnomalia)
           }
@@ -185,7 +183,7 @@ export function useAnalisisRealtime(onNuevo: (analisis: AnalisisLlamada) => void
           schema: 'public',
           table: 'analisis_llamadas'
         },
-        (payload) => {
+        (payload: RealtimePostgresChangesPayload<AnalisisLlamada>) => {
           if (payload.new) {
             onNuevo(payload.new as AnalisisLlamada)
           }
@@ -200,11 +198,6 @@ export function useAnalisisRealtime(onNuevo: (analisis: AnalisisLlamada) => void
 }
 
 // ---------- Presence Hook (opcional) ----------
-
-interface PresenceState {
-  odersOnline: number
-  users: Array<{ id: string; name: string; lastSeen: string }>
-}
 
 export function usePresence(userId: string, userName: string) {
   const channelRef = useRef<RealtimeChannel | null>(null)
@@ -225,13 +218,13 @@ export function usePresence(userId: string, userName: string) {
         const state = channel.presenceState()
         console.log('Users online:', Object.keys(state).length)
       })
-      .on('presence', { event: 'join' }, ({ key, newPresences }) => {
+      .on('presence', { event: 'join' }, ({ key, newPresences }: { key: string; newPresences: unknown[] }) => {
         console.log('User joined:', key, newPresences)
       })
-      .on('presence', { event: 'leave' }, ({ key, leftPresences }) => {
+      .on('presence', { event: 'leave' }, ({ key, leftPresences }: { key: string; leftPresences: unknown[] }) => {
         console.log('User left:', key, leftPresences)
       })
-      .subscribe(async (status) => {
+      .subscribe(async (status: string) => {
         if (status === 'SUBSCRIBED') {
           await channel.track({
             user_id: userId,

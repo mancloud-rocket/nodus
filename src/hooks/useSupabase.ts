@@ -131,10 +131,10 @@ export function useLlamadas(limit = 50) {
 
     if (error) throw error
     
-    return (data || []).map(item => ({
+    return (data || []).map((item: Record<string, unknown>) => ({
       ...item,
       agente: item.agente as unknown as Agente,
-      analisis: item.analisis?.[0] as AnalisisLlamada | undefined
+      analisis: (item.analisis as AnalisisLlamada[] | undefined)?.[0] as AnalisisLlamada | undefined
     }))
   }, [limit])
 }
@@ -175,9 +175,9 @@ export function useLlamadasPorAgente(agenteId: string | undefined, limit = 25) {
 
     if (error) throw error
     
-    return (data || []).map(item => ({
+    return (data || []).map((item: Record<string, unknown>) => ({
       ...item,
-      analisis: item.analisis?.[0] as AnalisisLlamada | undefined
+      analisis: (item.analisis as AnalisisLlamada[] | undefined)?.[0] as AnalisisLlamada | undefined
     }))
   }, [agenteId, limit])
 }
@@ -214,8 +214,8 @@ export function useAlertasCount() {
     const alertas = data || []
     return {
       total: alertas.length,
-      criticas: alertas.filter(a => a.severidad === 'critica').length,
-      altas: alertas.filter(a => a.severidad === 'alta').length
+      criticas: alertas.filter((a: { severidad: string }) => a.severidad === 'critica').length,
+      altas: alertas.filter((a: { severidad: string }) => a.severidad === 'alta').length
     }
   }, [])
 }
@@ -288,20 +288,23 @@ export function useDashboardMetrics() {
       .in('estado', ['nueva', 'en_revision'])
 
     // Calcular promedios
-    const scores = analisis?.map(a => a.score_total) || []
-    const probs = analisis?.map(a => a.probabilidad_cumplimiento) || []
+    const scores = analisis?.map((a: { score_total: number }) => a.score_total) || []
+    const probs = analisis?.map((a: { probabilidad_cumplimiento: number }) => a.probabilidad_cumplimiento) || []
     
     const scorePromedio = scores.length > 0 
-      ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) 
+      ? Math.round(scores.reduce((a: number, b: number) => a + b, 0) / scores.length) 
       : 0
 
     const probPromedio = probs.length > 0
-      ? Math.round(probs.reduce((a, b) => a + b, 0) / probs.length)
+      ? Math.round(probs.reduce((a: number, b: number) => a + b, 0) / probs.length)
       : 0
 
     // Calcular tasa de validacion
-    const validaciones = analisis?.filter(a => {
-      const modulo = a.modulo_compromiso_pago as { desglose?: { validacion_cliente?: { tipo?: string } } }
+    interface AnalisisWithModulo {
+      modulo_compromiso_pago?: { desglose?: { validacion_cliente?: { tipo?: string } } }
+    }
+    const validaciones = analisis?.filter((a: AnalisisWithModulo) => {
+      const modulo = a.modulo_compromiso_pago
       return modulo?.desglose?.validacion_cliente?.tipo === 'explicita'
     }) || []
     
@@ -340,7 +343,7 @@ export function useTendencias(dias = 7) {
 
     if (error) throw error
 
-    return (data || []).map(m => ({
+    return (data || []).map((m: { fecha: string; total_llamadas: number; score_promedio: number | null; tasa_validacion: number | null }) => ({
       fecha: new Date(m.fecha).toLocaleDateString('es', { weekday: 'short' }),
       llamadas: m.total_llamadas,
       score: m.score_promedio || 0,
@@ -369,7 +372,7 @@ export function useTopPerformers(limit = 5) {
 
     if (error) throw error
 
-    return (data || []).map(a => ({
+    return (data || []).map((a: ResumenAgente) => ({
       agente_id: a.agente_id,
       nombre: a.nombre,
       score: a.score_semana || 0,

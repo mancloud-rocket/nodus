@@ -1,4 +1,4 @@
-import { Phone, TrendingUp, Target, Subscript, Wifi, WifiOff, RefreshCw } from 'lucide-react'
+import { Phone, TrendingUp, Target, Wifi, WifiOff, RefreshCw } from 'lucide-react'
 import { Header } from '@/components/layout/Header'
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
@@ -42,12 +42,19 @@ export function Dashboard() {
     tipo: a.tipo,
     severidad: a.severidad,
     descripcion: a.descripcion,
-    causa_probable: a.causa_probable || undefined,
-    impacto_estimado: a.impacto_estimado as { llamadas_afectadas?: number; perdida_oportunidades?: number } || undefined,
-    accion_recomendada: a.accion_recomendada as { urgencia?: string; destinatario?: string; accion?: string } || undefined,
-    agentes_relacionados: a.agentes_relacionados || undefined,
+    causa_probable: a.causa_probable || '',
+    impacto_estimado: {
+      llamadas_afectadas: (a.impacto_estimado as Record<string, number>)?.llamadas_afectadas || 0,
+      perdida_oportunidades: (a.impacto_estimado as Record<string, number>)?.perdida_oportunidades || 0
+    },
+    accion_recomendada: {
+      urgencia: (a.accion_recomendada as Record<string, string>)?.urgencia || '',
+      destinatario: (a.accion_recomendada as Record<string, string>)?.destinatario || '',
+      accion: (a.accion_recomendada as Record<string, string>)?.accion || ''
+    },
+    agentes_relacionados: a.agentes_relacionados || [],
     estado: a.estado,
-    notificacion_enviada: a.notificacion_enviada,
+    notificacion_enviada: a.notificacion_enviada || false,
     created_at: a.created_at
   })) : mockAlertas
 

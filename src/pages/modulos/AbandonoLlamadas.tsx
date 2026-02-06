@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { ModuloHeader, DonutMetric } from '@/components/modulos'
 import { useAbandonoKPIs, useAbandonosDetalle, useAgentesModulos } from '@/hooks/useModulos'
-import { RefreshCw, AlertTriangle, Clock, DollarSign, MessageSquare, CheckCircle } from 'lucide-react'
+import { RefreshCw, Clock, MessageSquare, CheckCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 // Mock data
@@ -264,7 +264,7 @@ export function AbandonoLlamadas() {
                           {agente.tasa_abandono}%
                         </Badge>
                       </td>
-                      <td className="py-3 px-4 text-center text-sm">{agente.llamadas_con_abandono || '-'}</td>
+                      <td className="py-3 px-4 text-center text-sm">{(agente as Record<string, unknown>).llamadas_con_abandono as number || '-'}</td>
                       <td className="py-3 px-4 text-center text-sm">{agente.total_llamadas}</td>
                       <td className="py-3 px-4 text-center">
                         {(agente.tasa_abandono || 0) <= 15 ? (

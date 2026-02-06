@@ -15,7 +15,7 @@ interface ProbabilidadFlowProps {
 export function ProbabilidadFlow({ pasos }: ProbabilidadFlowProps) {
   return (
     <div className="space-y-3">
-      {pasos.map((paso, index) => {
+      {pasos.map((paso) => {
         const widthPercent = Math.min(100, Math.max(20, paso.prob_teorica))
         
         return (

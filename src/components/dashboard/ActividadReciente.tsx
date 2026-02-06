@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { cn, formatRelativeTime, formatDuration } from '@/lib/utils'
+import { formatRelativeTime, formatDuration } from '@/lib/utils'
 import type { Llamada, AnalisisLlamada } from '@/types'
 
 interface LlamadaConAnalisis extends Llamada {

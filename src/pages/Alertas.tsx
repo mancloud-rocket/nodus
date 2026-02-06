@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
-import { AlertTriangle, AlertCircle, Info, CheckCircle, Plus, SlidersHorizontal, MoreHorizontal, ChevronLeft, ChevronRight, RefreshCw, Wifi, WifiOff, Bell } from 'lucide-react'
+import { AlertTriangle, AlertCircle, Info, Plus, SlidersHorizontal, MoreHorizontal, ChevronLeft, ChevronRight, RefreshCw, Wifi, WifiOff, Bell } from 'lucide-react'
 import { Header } from '@/components/layout/Header'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'

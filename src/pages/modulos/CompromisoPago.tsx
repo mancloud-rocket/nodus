@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { ModuloHeader, PilarCard, ProbabilidadFlow, ImpactoElementosChart } from '@/components/modulos'
 import { useCompromisoElementos, useFlujoProbabilidad, useAgentesModulos } from '@/hooks/useModulos'
-import { RefreshCw, CheckCircle, Info } from 'lucide-react'
+import { RefreshCw, CheckCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 // Mock data
@@ -55,10 +55,6 @@ export function CompromisoPago() {
     flujo.refetch()
     agentes.refetch()
   }
-
-  // Calcular tasa de validacion global
-  const acuerdoCompleto = displayElementos.find(e => e.categoria === 'Acuerdo completo')
-  const tasaValidacion = acuerdoCompleto?.porcentaje_del_total || 17
 
   return (
     <>
@@ -220,7 +216,7 @@ export function CompromisoPago() {
                           {agente.score_compromiso}
                         </Badge>
                       </td>
-                      <td className="py-3 px-4 text-center text-sm">{agente.pct_oferta || '-'}%</td>
+                      <td className="py-3 px-4 text-center text-sm">{(agente as Record<string, unknown>).pct_oferta as number || '-'}%</td>
                       <td className="py-3 px-4 text-center">
                         <span className={cn(
                           "font-semibold",

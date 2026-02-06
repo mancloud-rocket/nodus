@@ -30,7 +30,7 @@ export function TopPerformers({ performers }: TopPerformersProps) {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          {performers.slice(0, 5).map((performer, index) => {
+          {performers.slice(0, 5).map((performer) => {
             const TrendIcon = performer.trend === 'up' 
               ? TrendingUp 
               : performer.trend === 'down' 

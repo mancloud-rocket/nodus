@@ -4,7 +4,7 @@ import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
-import type { ModuloContactoDirecto, ModuloCompromisoPago, ModuloAbandono } from '@/types'
+import type { ModuloAbandono } from '@/types'
 
 interface ModuloScoreProps {
   titulo: string
@@ -38,7 +38,7 @@ export function ModuloScore({
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay }}
     >
-      <Card variant="glass">
+      <Card>
         <CardHeader className="pb-3">
           <div className="flex items-center justify-between">
             <CardTitle className="flex items-center gap-2 text-base">
@@ -134,7 +134,7 @@ export function ModuloAbandonoCard({ data, delay = 0 }: ModuloAbandonoProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay }}
     >
-      <Card variant={data.hubo_abandono ? "glow" : "glass"} className={cn(
+      <Card className={cn(
         data.hubo_abandono && "border-destructive/50"
       )}>
         <CardContent className="p-4">

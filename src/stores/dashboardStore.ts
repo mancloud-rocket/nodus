@@ -181,17 +181,17 @@ export const useDashboardStore = create<DashboardState>((set, get) => ({
         supabase.from('alertas_anomalias').select('*', { count: 'exact', head: true }).in('estado', ['nueva', 'en_revision'])
       ])
 
-      const scores = analisis?.map(a => a.score_total) || []
-      const probs = analisis?.map(a => a.probabilidad_cumplimiento) || []
+      const scores = analisis?.map((a: { score_total: number }) => a.score_total) || []
+      const probs = analisis?.map((a: { probabilidad_cumplimiento: number }) => a.probabilidad_cumplimiento) || []
 
       const metrics: DashboardMetrics = {
         total_llamadas: totalLlamadas || 0,
         llamadas_hoy: llamadasHoy || 0,
-        score_promedio: scores.length > 0 ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : 0,
+        score_promedio: scores.length > 0 ? Math.round(scores.reduce((a: number, b: number) => a + b, 0) / scores.length) : 0,
         cambio_score: 0,
         tasa_validacion: 0.52, // TODO: calculate
         cambio_validacion: 0,
-        probabilidad_promedio: probs.length > 0 ? Math.round(probs.reduce((a, b) => a + b, 0) / probs.length) : 0,
+        probabilidad_promedio: probs.length > 0 ? Math.round(probs.reduce((a: number, b: number) => a + b, 0) / probs.length) : 0,
         cambio_probabilidad: 0,
         alertas_activas: alertasActivas || 0,
         monto_comprometido: 0
@@ -211,7 +211,7 @@ export const useDashboardStore = create<DashboardState>((set, get) => ({
         total_llamadas: t.llamadas,
         score_promedio: t.score,
         tasa_validacion: t.validacion / 100
-      }))).map(m => ({
+      }))).map((m: { fecha: string; total_llamadas: number; score_promedio: number | null; tasa_validacion: number | null }) => ({
         fecha: typeof m.fecha === 'string' && m.fecha.includes('-') 
           ? new Date(m.fecha).toLocaleDateString('es', { weekday: 'short' })
           : m.fecha,
@@ -228,7 +228,7 @@ export const useDashboardStore = create<DashboardState>((set, get) => ({
         .order('score_semana', { ascending: false })
         .limit(5)
 
-      const topPerformers = (resumen || []).map(a => ({
+      const topPerformers = (resumen || []).map((a: { agente_id: string; nombre: string; score_semana: number | null; llamadas_semana: number | null; tasa_validacion_ultimo_reporte: number | null }) => ({
         agente_id: a.agente_id,
         nombre: a.nombre,
         score: a.score_semana || 0,
@@ -299,7 +299,7 @@ export const useDashboardStore = create<DashboardState>((set, get) => ({
 
       if (error) throw error
 
-      const llamadas = (data || []).map(item => ({
+      const llamadas = (data || []).map((item: Record<string, unknown>) => ({
         ...item,
         agente_nombre: (item.agente as { nombre: string } | null)?.nombre,
         analisis: item.analisis?.[0] as AnalisisLlamada | undefined
@@ -360,7 +360,7 @@ export const useDashboardStore = create<DashboardState>((set, get) => ({
     }))
   },
 
-  addAnalisis: (analisis) => {
+  addAnalisis: (_analisis: AnalisisLlamada) => {
     set(state => ({
       metrics: state.metrics ? {
         ...state.metrics,

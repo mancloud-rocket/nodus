@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { Search, Plus, SlidersHorizontal, MoreHorizontal, ChevronLeft, ChevronRight, UserPlus, Mail, RefreshCw, Wifi, WifiOff } from 'lucide-react'
 import { Header } from '@/components/layout/Header'
 import { Input } from '@/components/ui/input'

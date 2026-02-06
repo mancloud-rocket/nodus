@@ -1,7 +1,6 @@
 import { TrendingUp, TrendingDown, Target, AlertCircle, CheckCircle } from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
 import { ScoreGauge } from '@/components/charts/ScoreGauge'
 import type { PrediccionCumplimiento } from '@/types'
@@ -20,7 +19,7 @@ export function PrediccionCard({ prediccion, delay = 0 }: PrediccionCardProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay }}
     >
-      <Card variant="gradient">
+      <Card>
         <CardHeader className="pb-2">
           <CardTitle className="flex items-center gap-2 text-base">
             <Target className="w-5 h-5 text-primary" />

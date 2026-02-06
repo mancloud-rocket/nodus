@@ -17,8 +17,7 @@ import {
   PhoneOff
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip'
-import { useState } from 'react'
+import { TooltipProvider } from '@/components/ui/tooltip'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 
 const navigation = [
