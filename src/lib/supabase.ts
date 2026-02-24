@@ -1,34 +1,17 @@
-// ============================================
-// NODUS - Supabase Client
-// ============================================
+import { createClient } from '@supabase/supabase-js';
 
-import { createClient } from '@supabase/supabase-js'
-import type { Database } from '@/types/database'
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+const isConfigured = supabaseUrl && supabaseKey;
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn('Supabase credentials not found. Using mock data.')
-}
+if(!isConfigured) {
+  console.warn('Supabase no está configurado correctamente. Verifica las variables de entorno.');
+};
 
-export const supabase = createClient<Database>(
+export const isSupabaseConfigured = () => !!isConfigured;
+
+export const supabase = createClient (
   supabaseUrl || 'https://placeholder.supabase.co',
-  supabaseAnonKey || 'placeholder-key',
-  {
-    realtime: {
-      params: {
-        eventsPerSecond: 10
-      }
-    }
-  }
-)
-
-// Helper para verificar si Supabase esta configurado
-export const isSupabaseConfigured = () => {
-  return !!(supabaseUrl && supabaseAnonKey && !supabaseUrl.includes('placeholder'))
-}
-
-
-
-
+  supabaseKey || 'placeholder'
+);

@@ -1,6 +1,6 @@
 export * from './Dashboard'
-export * from './Llamadas'
-export * from './LlamadaDetalle'
+export { default as Llamadas } from './Llamadas';
+export { default as DetalleLlamada } from './detalleLlamada';
 export * from './Agentes'
 export * from './Chat'
 export * from './Alertas'

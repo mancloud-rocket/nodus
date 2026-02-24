@@ -3,7 +3,7 @@ import { MainLayout } from '@/components/layout/MainLayout'
 import { 
   Dashboard, 
   Llamadas, 
-  LlamadaDetalle, 
+  DetalleLlamada, 
   Agentes, 
   Chat, 
   Alertas,
@@ -21,7 +21,7 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="/llamadas" element={<Llamadas />} />
-          <Route path="/llamadas/:id" element={<LlamadaDetalle />} />
+          <Route path="/llamadas/:id" element={<DetalleLlamada />} />
           <Route path="/agentes" element={<Agentes />} />
           <Route path="/agentes/:id" element={<Agentes />} />
           {/* Modulos de Analisis */}

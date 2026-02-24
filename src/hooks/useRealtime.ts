@@ -1,14 +1,14 @@
+// src/hooks/useRealtime.ts
 // ============================================
-// NODUS - Supabase Realtime Hook
-// Suscripciones en tiempo real
+// NODUS - Supabase Realtime Hook (Blindado)
 // ============================================
 
-import { useEffect, useCallback, useRef } from 'react'
+import { useEffect, useRef, useCallback } from 'react'
 import { supabase, isSupabaseConfigured } from '@/lib/supabase'
 import type { RealtimeChannel, RealtimePostgresChangesPayload } from '@supabase/supabase-js'
 import type { AlertaAnomalia, AnalisisLlamada, CoachingReport, RegistroLlamada } from '@/types/database'
 
-// ---------- Types ----------
+// ---------- Interfaces ----------
 
 interface RealtimeCallbacks {
   onNuevaAlerta?: (alerta: AlertaAnomalia) => void
@@ -18,234 +18,114 @@ interface RealtimeCallbacks {
   onLlamadaActualizada?: (llamada: RegistroLlamada) => void
 }
 
-// ---------- Main Hook ----------
+// ---------- Hook Principal (El que usa el Dashboard) ----------
 
 export function useRealtime(callbacks: RealtimeCallbacks) {
-  const channelRef = useRef<RealtimeChannel | null>(null)
+  // 1. EL TRUCO MAESTRO: Guardamos los callbacks en una referencia
+  // Esto evita que React reinicie la conexión cada vez que renderiza
+  const callbacksRef = useRef(callbacks);
 
-  const setupChannel = useCallback(() => {
-    if (!isSupabaseConfigured()) {
-      console.log('Supabase not configured, skipping realtime setup')
-      return null
-    }
-
-    // Crear canal con nombre unico
-    const channel = supabase.channel('nodus-realtime', {
-      config: {
-        broadcast: { self: true }
-      }
-    })
-
-    // Suscribirse a alertas_anomalias
-    channel.on<AlertaAnomalia>(
-      'postgres_changes',
-      {
-        event: 'INSERT',
-        schema: 'public',
-        table: 'alertas_anomalias'
-      },
-      (payload: RealtimePostgresChangesPayload<AlertaAnomalia>) => {
-        if (payload.new && callbacks.onNuevaAlerta) {
-          callbacks.onNuevaAlerta(payload.new as AlertaAnomalia)
-        }
-      }
-    )
-
-    channel.on<AlertaAnomalia>(
-      'postgres_changes',
-      {
-        event: 'UPDATE',
-        schema: 'public',
-        table: 'alertas_anomalias'
-      },
-      (payload: RealtimePostgresChangesPayload<AlertaAnomalia>) => {
-        if (payload.new && callbacks.onAlertaActualizada) {
-          callbacks.onAlertaActualizada(payload.new as AlertaAnomalia)
-        }
-      }
-    )
-
-    // Suscribirse a analisis_llamadas
-    channel.on<AnalisisLlamada>(
-      'postgres_changes',
-      {
-        event: 'INSERT',
-        schema: 'public',
-        table: 'analisis_llamadas'
-      },
-      (payload: RealtimePostgresChangesPayload<AnalisisLlamada>) => {
-        if (payload.new && callbacks.onNuevoAnalisis) {
-          callbacks.onNuevoAnalisis(payload.new as AnalisisLlamada)
-        }
-      }
-    )
-
-    // Suscribirse a coaching_reports
-    channel.on<CoachingReport>(
-      'postgres_changes',
-      {
-        event: 'INSERT',
-        schema: 'public',
-        table: 'coaching_reports'
-      },
-      (payload: RealtimePostgresChangesPayload<CoachingReport>) => {
-        if (payload.new && callbacks.onNuevoCoachingReport) {
-          callbacks.onNuevoCoachingReport(payload.new as CoachingReport)
-        }
-      }
-    )
-
-    // Suscribirse a registro_llamadas (updates de estado)
-    channel.on<RegistroLlamada>(
-      'postgres_changes',
-      {
-        event: 'UPDATE',
-        schema: 'public',
-        table: 'registro_llamadas'
-      },
-      (payload: RealtimePostgresChangesPayload<RegistroLlamada>) => {
-        if (payload.new && callbacks.onLlamadaActualizada) {
-          callbacks.onLlamadaActualizada(payload.new as RegistroLlamada)
-        }
-      }
-    )
-
-    return channel
-  }, [callbacks])
+  // Actualizamos la referencia en cada render silenciosamente
+  useEffect(() => {
+    callbacksRef.current = callbacks;
+  });
 
   useEffect(() => {
-    const channel = setupChannel()
-    
-    if (channel) {
-      channel.subscribe((status: string) => {
-        if (status === 'SUBSCRIBED') {
-          console.log('Realtime connected')
-        } else if (status === 'CHANNEL_ERROR') {
-          console.error('Realtime connection error')
-        }
-      })
-      
-      channelRef.current = channel
-    }
+    if (!isSupabaseConfigured()) return;
 
-    return () => {
-      if (channelRef.current) {
-        supabase.removeChannel(channelRef.current)
-        channelRef.current = null
-      }
-    }
-  }, [setupChannel])
+    // Conexión única
+    const channel = supabase.channel('nodus-global-channel');
 
-  return {
-    isConnected: !!channelRef.current
-  }
+    channel
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'alertas_anomalias' }, 
+        (payload) => callbacksRef.current.onNuevaAlerta?.(payload.new as AlertaAnomalia)
+      )
+      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'alertas_anomalias' }, 
+        (payload) => callbacksRef.current.onAlertaActualizada?.(payload.new as AlertaAnomalia)
+      )
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'analisis_llamadas' }, 
+        (payload) => callbacksRef.current.onNuevoAnalisis?.(payload.new as AnalisisLlamada)
+      )
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'coaching_reports' }, 
+        (payload) => callbacksRef.current.onNuevoCoachingReport?.(payload.new as CoachingReport)
+      )
+      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'registro_llamadas' }, 
+        (payload) => callbacksRef.current.onLlamadaActualizada?.(payload.new as RegistroLlamada)
+      )
+      .subscribe();
+
+    return () => { supabase.removeChannel(channel); };
+  }, []); // Array vacío = Solo se ejecuta UNA vez al montar
+
+  return { isConnected: true };
 }
 
-// ---------- Specific Table Hooks ----------
+// ---------- Hooks Específicos (Restaurados y Blindados) ----------
 
 export function useAlertasRealtime(onNueva: (alerta: AlertaAnomalia) => void) {
+  const onNuevaRef = useRef(onNueva);
+  useEffect(() => { onNuevaRef.current = onNueva; });
+
   useEffect(() => {
-    if (!isSupabaseConfigured()) return
+    if (!isSupabaseConfigured()) return;
 
     const channel = supabase
-      .channel('alertas-changes')
-      .on<AlertaAnomalia>(
-        'postgres_changes',
-        {
-          event: 'INSERT',
-          schema: 'public',
-          table: 'alertas_anomalias'
-        },
-        (payload: RealtimePostgresChangesPayload<AlertaAnomalia>) => {
-          if (payload.new) {
-            onNueva(payload.new as AlertaAnomalia)
-          }
-        }
+      .channel('alertas-specific')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'alertas_anomalias' },
+        (payload) => onNuevaRef.current(payload.new as AlertaAnomalia)
       )
-      .subscribe()
+      .subscribe();
 
-    return () => {
-      supabase.removeChannel(channel)
-    }
-  }, [onNueva])
+    return () => { supabase.removeChannel(channel); };
+  }, []);
 }
 
 export function useAnalisisRealtime(onNuevo: (analisis: AnalisisLlamada) => void) {
+  const onNuevoRef = useRef(onNuevo);
+  useEffect(() => { onNuevoRef.current = onNuevo; });
+
   useEffect(() => {
-    if (!isSupabaseConfigured()) return
+    if (!isSupabaseConfigured()) return;
 
     const channel = supabase
-      .channel('analisis-changes')
-      .on<AnalisisLlamada>(
-        'postgres_changes',
-        {
-          event: 'INSERT',
-          schema: 'public',
-          table: 'analisis_llamadas'
-        },
-        (payload: RealtimePostgresChangesPayload<AnalisisLlamada>) => {
-          if (payload.new) {
-            onNuevo(payload.new as AnalisisLlamada)
-          }
-        }
+      .channel('analisis-specific')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'analisis_llamadas' },
+        (payload) => onNuevoRef.current(payload.new as AnalisisLlamada)
       )
-      .subscribe()
+      .subscribe();
 
-    return () => {
-      supabase.removeChannel(channel)
-    }
-  }, [onNuevo])
+    return () => { supabase.removeChannel(channel); };
+  }, []);
 }
 
-// ---------- Presence Hook (opcional) ----------
+// ---------- Hook de Presencia (Usuarios Online) ----------
 
 export function usePresence(userId: string, userName: string) {
-  const channelRef = useRef<RealtimeChannel | null>(null)
+  const channelRef = useRef<RealtimeChannel | null>(null);
 
   useEffect(() => {
-    if (!isSupabaseConfigured()) return
+    if (!isSupabaseConfigured()) return;
 
     const channel = supabase.channel('online-users', {
-      config: {
-        presence: {
-          key: userId
-        }
+      config: { presence: { key: userId } }
+    });
+
+    channel.subscribe(async (status) => {
+      if (status === 'SUBSCRIBED') {
+        await channel.track({
+          user_id: userId,
+          user_name: userName,
+          online_at: new Date().toISOString()
+        });
       }
-    })
+    });
 
-    channel
-      .on('presence', { event: 'sync' }, () => {
-        const state = channel.presenceState()
-        console.log('Users online:', Object.keys(state).length)
-      })
-      .on('presence', { event: 'join' }, ({ key, newPresences }: { key: string; newPresences: unknown[] }) => {
-        console.log('User joined:', key, newPresences)
-      })
-      .on('presence', { event: 'leave' }, ({ key, leftPresences }: { key: string; leftPresences: unknown[] }) => {
-        console.log('User left:', key, leftPresences)
-      })
-      .subscribe(async (status: string) => {
-        if (status === 'SUBSCRIBED') {
-          await channel.track({
-            user_id: userId,
-            user_name: userName,
-            online_at: new Date().toISOString()
-          })
-        }
-      })
-
-    channelRef.current = channel
+    channelRef.current = channel;
 
     return () => {
-      if (channelRef.current) {
-        supabase.removeChannel(channelRef.current)
-      }
-    }
-  }, [userId, userName])
+      if (channelRef.current) supabase.removeChannel(channelRef.current);
+    };
+  }, [userId, userName]); // Aquí sí permitimos reconexión si cambia el usuario
 
-  return { channel: channelRef.current }
+  return { channel: channelRef.current };
 }
-
-
-
-

@@ -361,25 +361,39 @@ export const useDashboardStore = create<DashboardState>((set, get) => ({
     }))
   },
 
-  addAnalisis: (_analisis: AnalisisLlamada) => {
+  addAnalisis: (analisis: AnalisisLlamada) => {
     set(state => ({
       metrics: state.metrics ? {
         ...state.metrics,
         total_llamadas: state.metrics.total_llamadas + 1,
-        llamadas_hoy: state.metrics.llamadas_hoy + 1
+        llamadas_hoy: state.metrics.llamadas_hoy + 1,
+        score_promedio: Math.round((state.metrics.score_promedio * state.metrics.total_llamadas + analisis.score_total) / (state.metrics.total_llamadas + 1))
       } : null
     }))
-
-    // Refresh llamadas
-    get().fetchLlamadas()
-  },
-
-  updateLlamada: (llamada) => {
     set(state => ({
-      llamadasRecientes: state.llamadasRecientes.map(l =>
-        l.registro_id === llamada.registro_id ? { ...l, ...llamada } : l
+      llamadasRecientes: state.llamadasRecientes.map(l => 
+        l.registro_id === analisis.registro_id 
+          ? { ...l, analisis: analisis, estado: 'analizado' }
+          : l
       )
     }))
+  },
+
+ updateLlamada: (llamada) => {
+    set(state => {
+      const existe = state.llamadasRecientes.some(l => l.registro_id === llamada.registro_id);
+      if (existe) {
+        return {
+          llamadasRecientes: state.llamadasRecientes.map(l =>
+            l.registro_id === llamada.registro_id ? { ...l, ...llamada } : l
+          )
+        };
+      } else {
+        return {
+          llamadasRecientes: [llamada, ...state.llamadasRecientes]
+        };
+      }
+    })
   },
 
   // Notifications
